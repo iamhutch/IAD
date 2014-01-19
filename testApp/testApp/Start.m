@@ -9,6 +9,7 @@
 #import "Start.h"
 #import "LevelOne.h"
 #import "LevelTwo.h"
+#import "LevelThree.h"
 #import "Credits.h"
 #import "Help.h"
 
@@ -110,7 +111,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelTwo node]]];
             break;
         case 3:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Credits node]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelThree node]]];
             break;
             
         default:

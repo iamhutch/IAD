@@ -198,8 +198,10 @@
 		8486F95018627F1100168A87 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94C18627F1000168A87 /* help.png */; };
 		84A04D77188B5D70005C3AE8 /* LevelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D76188B5D70005C3AE8 /* LevelTwo.m */; };
 		84A04D7A188B6F4F005C3AE8 /* LevelThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D79188B6F4F005C3AE8 /* LevelThree.m */; };
+		84A04D7C188B75C3005C3AE8 /* fence.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A04D7B188B75C3005C3AE8 /* fence.png */; };
 		84A7A8751856B027001870B5 /* button-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8741856B027001870B5 /* button-pause.png */; };
 		84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8761856B083001870B5 /* button-pause-selected.png */; };
+		84B37CF7188B828400449E50 /* woodchuck-slide.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B37CF6188B828400449E50 /* woodchuck-slide.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -547,8 +549,10 @@
 		84A04D76188B5D70005C3AE8 /* LevelTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTwo.m; sourceTree = "<group>"; };
 		84A04D78188B6F4F005C3AE8 /* LevelThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThree.h; sourceTree = "<group>"; };
 		84A04D79188B6F4F005C3AE8 /* LevelThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThree.m; sourceTree = "<group>"; };
+		84A04D7B188B75C3005C3AE8 /* fence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fence.png; sourceTree = "<group>"; };
 		84A7A8741856B027001870B5 /* button-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause.png"; path = "Resources/button-pause.png"; sourceTree = "<group>"; };
 		84A7A8761856B083001870B5 /* button-pause-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause-selected.png"; path = "Resources/button-pause-selected.png"; sourceTree = "<group>"; };
+		84B37CF6188B828400449E50 /* woodchuck-slide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodchuck-slide.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,6 +644,7 @@
 		840BDC3F1850235700AFCBCC /* woodchuck */ = {
 			isa = PBXGroup;
 			children = (
+				84B37CF6188B828400449E50 /* woodchuck-slide.png */,
 				840BDC40185179C600AFCBCC /* woodchuck-hit01.png */,
 				8405EF0F185D567D00D905D4 /* woodchuck-anim-hd.plist */,
 				8405EF10185D567D00D905D4 /* woodchuck-anim-hd.png */,
@@ -698,6 +703,8 @@
 				847CF514184C13AA00758A18 /* LevelOne.m */,
 				84A04D75188B5D70005C3AE8 /* LevelTwo.h */,
 				84A04D76188B5D70005C3AE8 /* LevelTwo.m */,
+				84A04D78188B6F4F005C3AE8 /* LevelThree.h */,
+				84A04D79188B6F4F005C3AE8 /* LevelThree.m */,
 				847CF51A184C384100758A18 /* GameOver.h */,
 				847CF51B184C384100758A18 /* GameOver.m */,
 				8486F9461860D46B00168A87 /* Help.h */,
@@ -707,8 +714,6 @@
 				847CF35C184A512E00758A18 /* Resources */,
 				847CF374184A512E00758A18 /* libs */,
 				847CF4E8184A513100758A18 /* Supporting Files */,
-				84A04D78188B6F4F005C3AE8 /* LevelThree.h */,
-				84A04D79188B6F4F005C3AE8 /* LevelThree.m */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 		847CF35C184A512E00758A18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84A04D7B188B75C3005C3AE8 /* fence.png */,
 				8486F940185FF95900168A87 /* menu_credits.png */,
 				8486F941185FF95900168A87 /* menu_help.png */,
 				8486F942185FF95900168A87 /* menu_start.png */,
@@ -1177,9 +1183,11 @@
 				8405EF27185D568E00D905D4 /* wood-2.png in Resources */,
 				8405EF2A185D568E00D905D4 /* wood-5.png in Resources */,
 				8405EF2B185D568E00D905D4 /* wood-6.png in Resources */,
+				84A04D7C188B75C3005C3AE8 /* fence.png in Resources */,
 				8405EF19185D567D00D905D4 /* woodchuck-anim.plist in Resources */,
 				8405EF2E185D568E00D905D4 /* wood-9.png in Resources */,
 				847CF520184C43F300758A18 /* running.caf in Resources */,
+				84B37CF7188B828400449E50 /* woodchuck-slide.png in Resources */,
 				8405EF29185D568E00D905D4 /* wood-4.png in Resources */,
 				8486F935185FF5DA00168A87 /* gameover_ipad_hd.png in Resources */,
 				8405EF1A185D567D00D905D4 /* woodchuck-anim.png in Resources */,

@@ -234,7 +234,7 @@
 // START TRACTOR ROLLING
 - (void)sendTractor
 {
-    [_tractor runAction:[CCMoveTo actionWithDuration:20.0 position:ccp(winSize.width + _tractor.contentSize.width, winSize.height*0.35)]];
+    [_tractor runAction:[CCMoveTo actionWithDuration:30.0 position:ccp(winSize.width + _tractor.contentSize.width, winSize.height*0.35)]];
 }
 
 // START TOUCH
@@ -297,8 +297,8 @@
     CGPoint position1 = background.position;
     CGPoint position2 = foreground.position;
     
-    position1.x -= 1.0f;
-    position2.x -= 2.5f;
+    position1.x -= 0.5f;
+    position2.x -= 1.5f;
     
     background.position = position1;
     foreground.position = position2;

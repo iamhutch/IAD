@@ -9,7 +9,6 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
-#import "AppDelegate.h"
 
 @interface LevelTwo : CCLayer
 {
