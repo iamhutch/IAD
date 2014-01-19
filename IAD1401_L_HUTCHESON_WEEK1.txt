@@ -1,0 +1,25 @@
+================
+ MOBILE GAME
+================
+Woodchuck Run by Lucy Hutcheson
+
+================
+ GIT REPO LINK
+================
+https://github.com/iamhutch/IAD/
+
+================
+ INSTALLATION
+================
+Download and install the file.
+
+==================
+  USER GUIDELINES
+==================
+Tap on the screen to eat through the pile of wood before the farmer catches you.
+
+=========================
+  SPECIAL INSTRUCTIONS
+=========================
+No special instructions needed to install.
+
