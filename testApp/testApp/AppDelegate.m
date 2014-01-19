@@ -58,6 +58,15 @@
 
 @synthesize window=window_, navController=navController_, director=director_;
 
+
++ (void)initialize
+{
+    // Setup user preferences to save levels/score
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"Level"];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create the main window
@@ -136,13 +145,18 @@
 	
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"music.caf"];
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"music.caf"];
-
 	
+    // Get the last level the user was on
+    gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
+    NSLog(@"GAME LEVEL: %i", gameLevel);
+    
     // make main window visible
 	[window_ makeKeyAndVisible];
 	
 	return YES;
 }
+
+
 
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
@@ -174,6 +188,7 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:gameLevel] forKey:@"Level"];
 	CC_DIRECTOR_END();
 }
 

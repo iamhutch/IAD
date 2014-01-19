@@ -5,29 +5,41 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FD61A6C7-47F5-4009-8533-8A86B8541DB2</string>
+	<string>90EEA8F2-5343-4A35-A063-4184E71FB277</string>
 	<key>IDESourceControlProjectName</key>
 	<string>testApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5C485C58-BC0D-45B7-A291-9E25810EB21D</key>
 		<string>https://github.com/iamhutch/MGD.git</string>
+		<key>88E4D551-6A3B-4DE3-B57D-AC602FA2AAF5</key>
+		<string>https://github.com/iamhutch/IAD.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>testApp/testApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5C485C58-BC0D-45B7-A291-9E25810EB21D</key>
+		<string>../../../../../MGD 1312/MGD</string>
+		<key>88E4D551-6A3B-4DE3-B57D-AC602FA2AAF5</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/iamhutch/MGD.git</string>
+	<string>https://github.com/iamhutch/IAD.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5C485C58-BC0D-45B7-A291-9E25810EB21D</string>
+	<string>88E4D551-6A3B-4DE3-B57D-AC602FA2AAF5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>88E4D551-6A3B-4DE3-B57D-AC602FA2AAF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IAD</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

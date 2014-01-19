@@ -1,26 +1,28 @@
 //
-//  WoodChuckLayer.h
+//  LevelTwo.h
 //  testApp
 //
-//  Created by Lucy Hutcheson on 12/1/13.
-//  Copyright (c) 2013 Lucy Hutcheson. All rights reserved.
+//  Created by Lucy Hutcheson on 1/18/14.
+//  Copyright (c) 2014 Lucy Hutcheson. All rights reserved.
 //
 
 #import "CCLayer.h"
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
+#import "AppDelegate.h"
 
-
-@interface WoodChuckGame : CCLayer
+@interface LevelTwo : CCLayer
 {
     CGSize surface;
     CGSize winSize;
     CCSprite *_woodchuckWalk;
     CCSprite *_woodchuckHit;
     CCSprite *_wood;
+    CCSprite *_wood2;
     CCSprite *_tractor;
     CGRect _playerRect;
     CGRect _woodRect;
+    CGRect _woodRect2;
     CGRect _tractorRect;
     CCAnimation *walkingAnimation;
     CCAnimation *collisionAnimation;
@@ -32,6 +34,10 @@
     CCSprite *_bar;
     bool gamePause;
     int _woodCount;
+    int _gameLevel;
+    CCSprite *background;
+    CCSprite *foreground;
+
 }
 
 @property (nonatomic, strong) CCSprite *_woodchuckWalk;

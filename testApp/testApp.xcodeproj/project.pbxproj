@@ -25,6 +25,8 @@
 		8405EF2E185D568E00D905D4 /* wood-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405EF24185D568E00D905D4 /* wood-9.png */; };
 		840BDC41185179C600AFCBCC /* woodchuck-hit01.png in Resources */ = {isa = PBXBuildFile; fileRef = 840BDC40185179C600AFCBCC /* woodchuck-hit01.png */; };
 		840BDC431851810400AFCBCC /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 840BDC421851810400AFCBCC /* bar.png */; };
+		840E8CEA1888D2E60022B986 /* bg-repeat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE81888D2E60022B986 /* bg-repeat1.png */; };
+		840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE91888D2E60022B986 /* bg-repeat2.png */; };
 		847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF347184A512E00758A18 /* QuartzCore.framework */; };
 		847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF349184A512E00758A18 /* OpenGLES.framework */; };
 		847CF34C184A512E00758A18 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF34B184A512E00758A18 /* OpenAL.framework */; };
@@ -162,7 +164,7 @@
 		847CF50C184C108E00758A18 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF509184C108E00758A18 /* wood.png */; };
 		847CF50D184C108E00758A18 /* woodchuck.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF50A184C108E00758A18 /* woodchuck.png */; };
 		847CF50F184C10A200758A18 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CF50E184C10A200758A18 /* road.png */; };
-		847CF515184C13AA00758A18 /* WoodChuckGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF514184C13AA00758A18 /* WoodChuckGame.m */; };
+		847CF515184C13AA00758A18 /* LevelOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF514184C13AA00758A18 /* LevelOne.m */; };
 		847CF51C184C384100758A18 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CF51B184C384100758A18 /* GameOver.m */; };
 		847CF51F184C43F300758A18 /* crunch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 847CF51D184C40B800758A18 /* crunch.caf */; };
 		847CF520184C43F300758A18 /* running.caf in Resources */ = {isa = PBXBuildFile; fileRef = 847CF51E184C431600758A18 /* running.caf */; };
@@ -194,6 +196,8 @@
 		8486F94E18627F1100168A87 /* help_ipad_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94A18627F1000168A87 /* help_ipad_hd.png */; };
 		8486F94F18627F1100168A87 /* help_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94B18627F1000168A87 /* help_ipad.png */; };
 		8486F95018627F1100168A87 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94C18627F1000168A87 /* help.png */; };
+		84A04D77188B5D70005C3AE8 /* LevelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D76188B5D70005C3AE8 /* LevelTwo.m */; };
+		84A04D7A188B6F4F005C3AE8 /* LevelThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D79188B6F4F005C3AE8 /* LevelThree.m */; };
 		84A7A8751856B027001870B5 /* button-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8741856B027001870B5 /* button-pause.png */; };
 		84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8761856B083001870B5 /* button-pause-selected.png */; };
 /* End PBXBuildFile section */
@@ -217,6 +221,8 @@
 		8405EF24185D568E00D905D4 /* wood-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wood-9.png"; path = "Resources/wood-9.png"; sourceTree = "<group>"; };
 		840BDC40185179C600AFCBCC /* woodchuck-hit01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "woodchuck-hit01.png"; path = "Resources/woodchuck-hit01.png"; sourceTree = "<group>"; };
 		840BDC421851810400AFCBCC /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = Resources/bar.png; sourceTree = "<group>"; };
+		840E8CE81888D2E60022B986 /* bg-repeat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat1.png"; sourceTree = "<group>"; };
+		840E8CE91888D2E60022B986 /* bg-repeat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat2.png"; sourceTree = "<group>"; };
 		847CF344184A512E00758A18 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847CF347184A512E00758A18 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		847CF349184A512E00758A18 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -500,8 +506,8 @@
 		847CF509184C108E00758A18 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wood.png; path = Resources/wood.png; sourceTree = "<group>"; };
 		847CF50A184C108E00758A18 /* woodchuck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = woodchuck.png; path = Resources/woodchuck.png; sourceTree = "<group>"; };
 		847CF50E184C10A200758A18 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = road.png; path = Resources/road.png; sourceTree = "<group>"; };
-		847CF513184C13AA00758A18 /* WoodChuckGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodChuckGame.h; sourceTree = "<group>"; };
-		847CF514184C13AA00758A18 /* WoodChuckGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodChuckGame.m; sourceTree = "<group>"; };
+		847CF513184C13AA00758A18 /* LevelOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOne.h; sourceTree = "<group>"; };
+		847CF514184C13AA00758A18 /* LevelOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOne.m; sourceTree = "<group>"; };
 		847CF51A184C384100758A18 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		847CF51B184C384100758A18 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		847CF51D184C40B800758A18 /* crunch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = crunch.caf; path = Resources/crunch.caf; sourceTree = "<group>"; };
@@ -537,6 +543,10 @@
 		8486F94A18627F1000168A87 /* help_ipad_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_ipad_hd.png; path = Resources/help_ipad_hd.png; sourceTree = "<group>"; };
 		8486F94B18627F1000168A87 /* help_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_ipad.png; path = Resources/help_ipad.png; sourceTree = "<group>"; };
 		8486F94C18627F1000168A87 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help.png; path = Resources/help.png; sourceTree = "<group>"; };
+		84A04D75188B5D70005C3AE8 /* LevelTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTwo.h; sourceTree = "<group>"; };
+		84A04D76188B5D70005C3AE8 /* LevelTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTwo.m; sourceTree = "<group>"; };
+		84A04D78188B6F4F005C3AE8 /* LevelThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThree.h; sourceTree = "<group>"; };
+		84A04D79188B6F4F005C3AE8 /* LevelThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThree.m; sourceTree = "<group>"; };
 		84A7A8741856B027001870B5 /* button-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause.png"; path = "Resources/button-pause.png"; sourceTree = "<group>"; };
 		84A7A8761856B083001870B5 /* button-pause-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause-selected.png"; path = "Resources/button-pause-selected.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -565,6 +575,8 @@
 		840BDC1718501D3100AFCBCC /* background */ = {
 			isa = PBXGroup;
 			children = (
+				840E8CE81888D2E60022B986 /* bg-repeat1.png */,
+				840E8CE91888D2E60022B986 /* bg-repeat2.png */,
 				8486F91C185FF5DA00168A87 /* bg_hd.png */,
 				8486F91D185FF5DA00168A87 /* bg_ipad_hd.png */,
 				8486F91E185FF5DA00168A87 /* bg_ipad.png */,
@@ -682,8 +694,10 @@
 				847CF4F3184A513100758A18 /* IntroLayer.m */,
 				847CF525184D0BA800758A18 /* Start.h */,
 				847CF526184D0BA800758A18 /* Start.m */,
-				847CF513184C13AA00758A18 /* WoodChuckGame.h */,
-				847CF514184C13AA00758A18 /* WoodChuckGame.m */,
+				847CF513184C13AA00758A18 /* LevelOne.h */,
+				847CF514184C13AA00758A18 /* LevelOne.m */,
+				84A04D75188B5D70005C3AE8 /* LevelTwo.h */,
+				84A04D76188B5D70005C3AE8 /* LevelTwo.m */,
 				847CF51A184C384100758A18 /* GameOver.h */,
 				847CF51B184C384100758A18 /* GameOver.m */,
 				8486F9461860D46B00168A87 /* Help.h */,
@@ -693,6 +707,8 @@
 				847CF35C184A512E00758A18 /* Resources */,
 				847CF374184A512E00758A18 /* libs */,
 				847CF4E8184A513100758A18 /* Supporting Files */,
+				84A04D78188B6F4F005C3AE8 /* LevelThree.h */,
+				84A04D79188B6F4F005C3AE8 /* LevelThree.m */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -1185,6 +1201,7 @@
 				8405EF2D185D568E00D905D4 /* wood-8.png in Resources */,
 				8486F94E18627F1100168A87 /* help_ipad_hd.png in Resources */,
 				8486F945185FF95900168A87 /* menu_start.png in Resources */,
+				840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */,
 				847CF36A184A512E00758A18 /* Icon-Small.png in Resources */,
 				847CF366184A512E00758A18 /* Icon-72.png in Resources */,
 				847CF35E184A512E00758A18 /* Default.png in Resources */,
@@ -1193,6 +1210,7 @@
 				8486F938185FF5DA00168A87 /* start_hd.png in Resources */,
 				8486F93B185FF5DA00168A87 /* start.png in Resources */,
 				847CF50F184C10A200758A18 /* road.png in Resources */,
+				840E8CEA1888D2E60022B986 /* bg-repeat1.png in Resources */,
 				847CF368184A512E00758A18 /* Icon-Small-50.png in Resources */,
 				847CF50D184C108E00758A18 /* woodchuck.png in Resources */,
 				8405EF25185D568E00D905D4 /* wood-0.png in Resources */,
@@ -1266,9 +1284,10 @@
 				847CF47D184A513000758A18 /* CCArray.m in Sources */,
 				847CF4DA184A513000758A18 /* plane.c in Sources */,
 				847CF486184A513000758A18 /* CCProfiling.m in Sources */,
+				84A04D7A188B6F4F005C3AE8 /* LevelThree.m in Sources */,
 				847CF41D184A512F00758A18 /* CCShaderCache.m in Sources */,
 				847CF423184A512F00758A18 /* CCSprite.m in Sources */,
-				847CF515184C13AA00758A18 /* WoodChuckGame.m in Sources */,
+				847CF515184C13AA00758A18 /* LevelOne.m in Sources */,
 				847CF3CA184A512F00758A18 /* CCGrabber.m in Sources */,
 				847CF4D4184A513000758A18 /* mat3.c in Sources */,
 				847CF4EE184A513100758A18 /* AppDelegate.m in Sources */,
@@ -1328,6 +1347,7 @@
 				847CF401184A512F00758A18 /* CCProgressTimer.m in Sources */,
 				847CF3D6184A512F00758A18 /* CCLabelTTF.m in Sources */,
 				847CF483184A513000758A18 /* CCFileUtils.m in Sources */,
+				84A04D77188B5D70005C3AE8 /* LevelTwo.m in Sources */,
 				847CF470184A513000758A18 /* CCEventDispatcher.m in Sources */,
 				847CF426184A512F00758A18 /* CCSpriteBatchNode.m in Sources */,
 				847CF3AF184A512F00758A18 /* CCConfiguration.m in Sources */,

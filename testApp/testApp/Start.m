@@ -7,7 +7,8 @@
 //
 
 #import "Start.h"
-#import "WoodChuckGame.h"
+#import "LevelOne.h"
+#import "LevelTwo.h"
 #import "Credits.h"
 #import "Help.h"
 
@@ -62,9 +63,8 @@
         // SETUP MENUS WITH BLOCKS
         CCMenuItemImage *startMenu = [CCMenuItemImage itemWithNormalImage:@"menu_start.png"
                                                             selectedImage:nil
-                                                                    block:^(id sender)  {
-                                                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[WoodChuckGame node]]];
-                                                                    }
+                                                                   target:self
+                                                                 selector:@selector(startLevel:)
                                       ];
         startMenu.position = ccp(surface.width/4.0f, surface.height*0.40f);
         startMenu.tag = 0;
@@ -98,16 +98,18 @@
 }
 
 
-- (void)menuButtonPressed:(CCMenuItem  *) menuItem
+- (void)startLevel:(CCMenuItem  *) menuItem
 {
-    switch ((long)menuItem.tag) {
-        case 0:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[WoodChuckGame node]]];
-            break;
+    int currentLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
+    NSLog(@"CURRENT LEVEL: %i", currentLevel);
+    switch (currentLevel) {
         case 1:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[WoodChuckGame node]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelOne node]]];
             break;
         case 2:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelTwo node]]];
+            break;
+        case 3:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Credits node]]];
             break;
             

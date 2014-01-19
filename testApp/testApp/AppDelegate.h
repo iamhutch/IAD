@@ -18,6 +18,8 @@
 	MyNavigationController *navController_;
 
 	CCDirectorIOS	*director_;							
+    // Global variable to set users game level
+    int gameLevel;
 }
 
 @property (nonatomic, retain) UIWindow *window;
