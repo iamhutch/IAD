@@ -9,9 +9,10 @@
 #import "LevelThree.h"
 #import "GameOver.h"
 #import "Start.h"
+#import "LevelBase.h"
 
 @implementation LevelThree
-@synthesize _woodchuckWalk, _woodchuckHit, collisionAction, walkAction, walkingAnimation, collisionAnimation;
+
 // SETUP SCENE
 +(CCScene *) scene
 {
@@ -31,245 +32,114 @@
         
         _woodCount = 0;
         
-        // SETUP AUDIO, WINDOW SIZE, BACKGROUND
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"crunch.caf"];
-        [[SimpleAudioEngine sharedEngine] preloadEffect:@"hit.caf"];
         winSize = [CCDirector sharedDirector].winSize;
         surface = [CCDirector sharedDirector].winSizeInPixels;
         
         // BACKGROUND
-		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
-        {
-            if (surface.width > 480)
-            {
-                background = [CCSprite spriteWithFile:@"bg-repeat1.png"];
-                background.position = ccp(winSize.width, winSize.height*0.5f);
-                
-                foreground = [CCSprite spriteWithFile:@"bg-repeat2.png"];
-                foreground.position = ccp(winSize.width, winSize.height*0.5f);
-                
-                [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"woodchuck-anim-hd.plist"];
-            }
-            else
-            {
-                background = [CCSprite spriteWithFile:@"bg.png"];
-                [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"woodchuck-anim.plist"];
-            }
-		}
-        else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            if (surface.width > 1024)
-            {
-                background = [CCSprite spriteWithFile:@"bg_ipad_hd.png"];
-            }
-            else
-            {
-                background = [CCSprite spriteWithFile:@"bg_ipad.png"];
-            }
-            
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"woodchuck-anim-hd.plist"];
-        }
-        
-		//background.position = ccp(winSize.width/2, winSize.height/2);
-		[self addChild: background z:0];
+        LevelBase *baseLevel = [[LevelBase alloc] init];
+        background = baseLevel._background;
+        foreground = baseLevel._foreground;
+		[self addChild:background z:0];
         [self addChild:foreground z:1];
         
+        
         // PROGRESS BAR AT THE TOP AS AN EVENT
-        _bar = [CCSprite spriteWithFile:@"bar.png"];
-        _bar.position = ccp(0.0, winSize.height);
-        _bar.anchorPoint = ccp(0.0,0.5);
-        [self addChild:_bar z:5];
+        bar = baseLevel._bar;
+        [self addChild:bar z:5];
+        
         
         // LEVEL LABEL
-        CCLabelTTF *levelLabel = [CCLabelTTF labelWithString:@"Level 3" fontName:@"Helvetica" fontSize:24];
-        levelLabel.position = ccp(winSize.width*0.5f, winSize.height*0.85f);
+        CCLabelTTF *levelLabel = baseLevel._levelLabel;
+        levelLabel.string = @"Level 3";
         [self addChild:levelLabel];
-        
         CCLabelTTF *levelInstr = [CCLabelTTF labelWithString:@"Slide finger side to side to slide under fence" fontName:@"Helvetica" fontSize:24];
         levelInstr.position = ccp(winSize.width*0.5f, winSize.height*0.78f);
         [self addChild:levelInstr];
-
+        
         
         // CREATE MY BUTTONS
-        CCMenuItem *pauseButton = [CCMenuItemImage itemWithNormalImage:@"button-pause.png" selectedImage:@"button-pause-selected.png" target:self selector:@selector(pauseButtonPressed:)];
-        pauseButton.position = ccp(winSize.width-50, winSize.height-(winSize.height*0.10));
-        CCMenu *pauseMenu = [CCMenu menuWithItems:pauseButton, nil];
-        pauseMenu.position = CGPointZero;
+        CCMenu *pauseMenu = baseLevel._pauseMenu;
         [self addChild:pauseMenu z:10];
         gamePause = NO;
         
         
-        
-        // WOODCHUCK ANIMATIONS ================================
-        NSMutableArray *walkingFrames = [NSMutableArray array];
-        NSMutableArray *collisionFrames = [NSMutableArray array];
-        for (int i=0; i<=1; i++)
-        {
-            [walkingFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"woodchuck-walking0%d.png", i]]];
-            [collisionFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"woodchuck-eat0%d.png", i]]];
-        }
-        
-        _woodchuckWalk = [CCSprite spriteWithSpriteFrameName:@"woodchuck-walking00.png"];
-        _woodchuckWalk.position = ccp(_woodchuckWalk.contentSize.width/2, winSize.height*0.20);
-        [_woodchuckWalk setVisible:YES];
-        [self addChild:_woodchuckWalk z:10];
-        
-        _woodchuckHit = [CCSprite spriteWithSpriteFrameName:@"woodchuck-eat00.png"];
-        _woodchuckHit.position = ccp(_woodchuckWalk.position.x, winSize.height*0.20);
-        [_woodchuckHit setVisible:NO];
-        [self addChild:_woodchuckHit z:10];
-        
-        _woodchuckSlide = [CCSprite spriteWithFile:@"woodchuck-slide.png"];
-        _woodchuckSlide.position = ccp(_woodchuckSlide.position.x, winSize.height*0.15);
-        [_woodchuckSlide setVisible:NO];
-        [self addChild:_woodchuckSlide z:10];
-        
-        walkingAnimation = [CCAnimation animationWithSpriteFrames:walkingFrames delay:0.25f];
-        walkAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]];
-        [_woodchuckWalk runAction:walkAction];
-        
-        collisionAnimation = [CCAnimation animationWithSpriteFrames:collisionFrames delay:0.5f];
-        collisionAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:collisionAnimation]];
-        [_woodchuckHit runAction:collisionAction];
-        
-        
+        // WOODCHUCK ANIMATIONS
+        woodchuckWalk = baseLevel._woodchuckWalk;
+        [self addChild:woodchuckWalk z:10];
+        woodchuckHit = baseLevel._woodchuckHit;
+        [self addChild:woodchuckHit z:10];
+        woodchuckSlide = baseLevel._woodchuckSlide;
+        [self addChild:woodchuckSlide z:10];
+
         
         // PILE OF WOOD
-        _wood = [CCSprite spriteWithFile:@"wood.png"];
-        _wood.position = ccp(winSize.width*0.75, winSize.height*0.2);
-        
-        [self addChild:_wood z:11];
-        
-        // FENCE OBSTACLE
-        _fence = [CCSprite spriteWithFile:@"fence.png"];
-        _fence.position = ccp(winSize.width*1.25f, winSize.height*0.2);
-        [self addChild:_fence z:11];
+        wood = baseLevel._wood; // PILE 1
+        [self addChild:wood z:11];
+
         
         // FARMER TRACTOR ANIMATION
-        NSMutableArray *tractorFrames = [NSMutableArray array];
-        for (int i=0; i<=3; i++)
-        {
-            [tractorFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"tractor-%d.png", i]]];
-        }
-        
-        _tractor = [CCSprite spriteWithSpriteFrameName:@"tractor-0.png"];
-        _tractor.position = ccp(-(_tractor.contentSize.width), winSize.height*0.35);
-        [self addChild:_tractor z:10];
-        
-        tractorAnimation = [CCAnimation animationWithSpriteFrames:tractorFrames delay:0.25f];
-        tractorAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:tractorAnimation]];
-        [_tractor runAction:tractorAction];
+        tractor = baseLevel._tractor;
+        [self addChild:tractor z:10];
         
         
-        // START OUR WOODCHUCK WALKING AND TRACTOR ROLLING
-        [self sendWoodChuck];
-        [self sendTractor];
-        [self sendWood];
+        // FENCE OBSTACLE
+        fence = baseLevel._fence;
+        [self addChild:fence z:11];
+
         
         // SETUP TICK
         [self schedule:@selector(tick:) interval:1.0f/60.0f];
+        
+        [self sendWoodChuck];  // START OUR WOODCHUCK WALKING
+        [self sendTractor];  // START OUR TRACTOR ROLLING
+        [self sendWood];
         
         // ALLOW TOUCHES
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
                                                                   priority:0
                                                            swallowsTouches:YES];
-        
-        // SET SCALINGS
-        if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
-        {
-            if (surface.width > 480)
-            {
-                _woodchuckWalk.scale = 1.5f;
-                _woodchuckHit.scale = 1.5f;
-                _wood.scale = 1.0f;
-                _tractor.scale = 1.5f;
-            }
-            else
-            {
-                _woodchuckWalk.scale = 1.0f;
-                _woodchuckHit.scale = 1.0f;
-                _wood.scale = 0.3f;
-                _tractor.scale = 1.0f;
-                pauseMenu.scale = 0.5f;
-            }
-		}
-        else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            if (surface.width > 1024)
-            {
-                _woodchuckWalk.scale = 3.0f;
-                _woodchuckHit.scale = 3.0f;
-                _wood.scale = 1.5f;
-                _tractor.scale = 2.8f;
-            }
-            else
-            {
-                _woodchuckWalk.scale = 2.0f;
-                _woodchuckHit.scale = 2.0f;
-                _wood.scale = 1.0f;
-                _tractor.scale = 1.8f;
-            }
-        }
-        
     }
     return self;
 }
 
-// WHEN PAUSE BUTTON IS PRESSED, TOGGLE THE PAUSE FUNCTIONS
-- (void)pauseButtonPressed:(id)sender
-{
-    if (gamePause == NO)
-    {
-        [[CCDirector sharedDirector] stopAnimation];
-        [[CCDirector sharedDirector] pause];
-        [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
-        gamePause = YES;
-    }
-    else
-    {
-        [[CCDirector sharedDirector] stopAnimation];
-        [[CCDirector sharedDirector] resume];
-        [[CCDirector sharedDirector] startAnimation];
-        [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-        gamePause = NO;
-    }
-}
+
 
 // START WOODCHUCK WALKING WITH LINEAR INTERPOLATION
 - (void)sendWoodChuck
 {
-    _woodchuckAction = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(_woodchuckWalk.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
-    [_woodchuckAction setTag:7001];
-    
-    _woodchuckAction2 = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(_woodchuckHit.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
-    [_woodchuckAction2 setTag:7002];
-    
-    _woodchuckAction3 = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(_woodchuckSlide.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
-    [_woodchuckAction3 setTag:7003];
+    // WALKING WOODCHUCK
+    woodchuckAction = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(woodchuckWalk.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
+    [woodchuckAction setTag:7001];
+    // EATING WOODCHUCK
+    woodchuckAction2 = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(woodchuckHit.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
+    [woodchuckAction2 setTag:7002];
+    // SLIDING WOODCHUCK
+    woodchuckAction3 = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(woodchuckSlide.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
+    [woodchuckAction3 setTag:7003];
 
-    [_woodchuckWalk runAction:_woodchuckAction];
-    [_woodchuckWalk setVisible:YES];
+    [woodchuckWalk runAction:woodchuckAction];
+    [woodchuckWalk setVisible:YES];
     
-    [_woodchuckHit runAction:_woodchuckAction2];
-    [_woodchuckHit setVisible:NO];
+    [woodchuckHit runAction:woodchuckAction2];
+    [woodchuckHit setVisible:NO];
     
-    [_woodchuckSlide runAction:_woodchuckAction3];
-    [_woodchuckSlide setVisible:NO];
+    [woodchuckSlide runAction:woodchuckAction3];
+    [woodchuckSlide setVisible:NO];
 
 }
 
 // START WOOD AND FENCE MOVING WITH ROAD
 - (void)sendWood
 {
-    [_wood runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(_wood.position, CGPointMake(winSize.width*0.4, winSize.height), 1).x, winSize.height*0.20)]];
+    [wood runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(wood.position, CGPointMake(winSize.width*0.4, winSize.height), 1).x, winSize.height*0.20)]];
     
-    [_fence runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(_fence.position, CGPointMake(winSize.width*0.75, winSize.height), 1).x, winSize.height*0.20)]];
+    [fence runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(fence.position, CGPointMake(winSize.width*0.75, winSize.height), 1).x, winSize.height*0.20)]];
 }
 
 // START TRACTOR ROLLING
 - (void)sendTractor
 {
-    [_tractor runAction:[CCMoveTo actionWithDuration:25.0 position:ccp(winSize.width + _tractor.contentSize.width, winSize.height*0.35)]];
+    [tractor runAction:[CCMoveTo actionWithDuration:25.0 position:ccp(winSize.width + tractor.contentSize.width, winSize.height*0.35)]];
 }
 
 // START TOUCH
@@ -281,10 +151,10 @@
 // SLIDE WOODCHUCK WHILE HOLDING DOWN TOUCH
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    [_woodchuckSlide setVisible:YES];
-    [_woodchuckWalk runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
-    [_woodchuckHit runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
-    [_woodchuckSlide runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
+    [woodchuckSlide setVisible:YES];
+    [woodchuckWalk runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
+    [woodchuckHit runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
+    [woodchuckSlide runAction: [CCMoveBy actionWithDuration:1 position:ccp(5,0)]];
 }
 
 // ON TOUCH ENDED
@@ -299,13 +169,13 @@
         {
             CCTexture2D *newTexture = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"wood-%d.png", _woodCount]];
             [[SimpleAudioEngine sharedEngine] playEffect:@"crunch.caf"];
-            _wood.texture = newTexture;
+            wood.texture = newTexture;
             if (_woodCount < 9){
                 _woodCount++;
             }
-            [_woodchuckWalk runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
-            [_woodchuckHit runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
-            [_woodchuckSlide runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
+            [woodchuckWalk runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
+            [woodchuckHit runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
+            [woodchuckSlide runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
 
         }
         else if (CGRectIntersectsRect(_playerRect, _fenceRect))
@@ -320,34 +190,34 @@
 // RETURN THE CGRECT OF OUR WOODCHUCK
 -(CGRect)rectPlayer
 {
-    return  CGRectMake(_woodchuckWalk.position.x - (_woodchuckWalk.contentSize.width/2),
-                       _woodchuckWalk.position.y - (_woodchuckWalk.contentSize.height/2),
-                       _woodchuckWalk.contentSize.width, _woodchuckWalk.contentSize.height);
+    return  CGRectMake(woodchuckWalk.position.x - (woodchuckWalk.contentSize.width/2),
+                       woodchuckWalk.position.y - (woodchuckWalk.contentSize.height/2),
+                       woodchuckWalk.contentSize.width, woodchuckWalk.contentSize.height);
 }
 
 // RETURN THE CGRECT OF OUR WOOD PILE
 -(CGRect)rectWood
 {
-    return CGRectMake(_wood.position.x - (_wood.contentSize.width/2),
-                      _wood.position.y - (_wood.contentSize.height/2),
-                      _wood.contentSize.width-50, _wood.contentSize.height);
+    return CGRectMake(wood.position.x - (wood.contentSize.width/2),
+                      wood.position.y - (wood.contentSize.height/2),
+                      wood.contentSize.width-50, wood.contentSize.height);
 }
 
 
 // RETURN THE CGRECT OF OUR FENCE
 -(CGRect)rectFence
 {
-    return CGRectMake(_fence.position.x+20.0f - (_fence.contentSize.width/2),
-                      _fence.position.y - (_fence.contentSize.height/2),
-                      _fence.contentSize.width-80.0f, _fence.contentSize.height);
+    return CGRectMake(fence.position.x+20.0f - (fence.contentSize.width/2),
+                      fence.position.y - (fence.contentSize.height/2),
+                      fence.contentSize.width-80.0f, fence.contentSize.height);
 }
 
 // RETURN THE CGRECT OF THE FARMER'S TRACTOR
 -(CGRect)rectTractor
 {
-    return CGRectMake(_tractor.position.x - (_tractor.contentSize.width/2),
-                      _tractor.position.y - (_tractor.contentSize.height/2),
-                      _tractor.contentSize.width+20.0f, _tractor.contentSize.height);
+    return CGRectMake(tractor.position.x - (tractor.contentSize.width/2),
+                      tractor.position.y - (tractor.contentSize.height/2),
+                      tractor.contentSize.width+20.0f, tractor.contentSize.height);
 }
 
 
@@ -372,7 +242,7 @@
     //NSLog(@"WOODCHUCK WALK POSITION: %f", (float)_woodchuckWalk.position.x);
     [self scrollBackgound:dt];
     
-    _bar.scaleX = (float) _woodchuckWalk.position.x - _woodchuckWalk.contentSize.width/2;
+    bar.scaleX = (float) woodchuckWalk.position.x - woodchuckWalk.contentSize.width/2;
     
     _playerRect = [self rectPlayer];
     _woodRect = [self rectWood];
@@ -382,32 +252,32 @@
     // CHECK IF WOODCHUCK HAS MET UP WITH WOODPILE
     if (CGRectIntersectsRect(_playerRect, _woodRect))
     {
-        [_woodchuckWalk stopActionByTag:7001];
-        [_woodchuckHit stopActionByTag:7002];
-        [_woodchuckSlide stopActionByTag:7003];
-       [_woodchuckWalk setVisible:NO];
-        [_woodchuckHit setVisible:YES];
-        [_woodchuckSlide setVisible:NO];
+        [woodchuckWalk stopActionByTag:7001];
+        [woodchuckHit stopActionByTag:7002];
+        [woodchuckSlide stopActionByTag:7003];
+        [woodchuckWalk setVisible:NO];
+        [woodchuckHit setVisible:YES];
+        [woodchuckSlide setVisible:NO];
     }
     else if (CGRectIntersectsRect(_playerRect, _fenceRect))
     {
-        [_woodchuckWalk stopActionByTag:7001];
-        [_woodchuckHit stopActionByTag:7002];
-        [_woodchuckSlide stopActionByTag:7003];
-       [_woodchuckHit setVisible:NO];
-        [_woodchuckWalk setVisible:NO];
-        [_woodchuckSlide setVisible:YES];
+        [woodchuckWalk stopActionByTag:7001];
+        [woodchuckHit stopActionByTag:7002];
+        [woodchuckSlide stopActionByTag:7003];
+        [woodchuckHit setVisible:NO];
+        [woodchuckWalk setVisible:NO];
+        [woodchuckSlide setVisible:YES];
     }
     else
     {
-        [_woodchuckHit setVisible:NO];
-        [_woodchuckWalk setVisible:YES];
-        [_woodchuckSlide setVisible:NO];
+        [woodchuckHit setVisible:NO];
+        [woodchuckWalk setVisible:YES];
+        [woodchuckSlide setVisible:NO];
     }
     
     // IF WOODCHUCK IS NOT OFFSCREEN AND TRACTOR INTERSECTS WITH WOODCHUCK,
     // PLAY GAME OVER SONG AND SHOW GAME OVER SCREEN
-    if ((_woodchuckWalk.position.x < winSize.width) && (CGRectIntersectsRect(_tractorRect, _playerRect)))
+    if ((woodchuckWalk.position.x < winSize.width) && (CGRectIntersectsRect(_tractorRect, _playerRect)))
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"hit.caf"];
         [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.2f];
@@ -415,7 +285,7 @@
     }
     
     // IF WOODCHUCK IS SAFELY OFFSCREEN, TAKE US BACK TO START
-    if (_woodchuckWalk.position.x > winSize.width) {
+    if (woodchuckWalk.position.x > winSize.width) {
         // INCREASE GAME LEVEL FROM 2 TO 3
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];
         _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];

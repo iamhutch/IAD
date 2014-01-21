@@ -27,6 +27,7 @@
 		840BDC431851810400AFCBCC /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 840BDC421851810400AFCBCC /* bar.png */; };
 		840E8CEA1888D2E60022B986 /* bg-repeat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE81888D2E60022B986 /* bg-repeat1.png */; };
 		840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE91888D2E60022B986 /* bg-repeat2.png */; };
+		84341869188D8642009AB02A /* LevelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84341868188D8642009AB02A /* LevelBase.m */; };
 		847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF347184A512E00758A18 /* QuartzCore.framework */; };
 		847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF349184A512E00758A18 /* OpenGLES.framework */; };
 		847CF34C184A512E00758A18 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF34B184A512E00758A18 /* OpenAL.framework */; };
@@ -225,6 +226,8 @@
 		840BDC421851810400AFCBCC /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = Resources/bar.png; sourceTree = "<group>"; };
 		840E8CE81888D2E60022B986 /* bg-repeat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat1.png"; sourceTree = "<group>"; };
 		840E8CE91888D2E60022B986 /* bg-repeat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat2.png"; sourceTree = "<group>"; };
+		84341867188D8642009AB02A /* LevelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelBase.h; sourceTree = "<group>"; };
+		84341868188D8642009AB02A /* LevelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelBase.m; sourceTree = "<group>"; };
 		847CF344184A512E00758A18 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847CF347184A512E00758A18 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		847CF349184A512E00758A18 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -699,6 +702,8 @@
 				847CF4F3184A513100758A18 /* IntroLayer.m */,
 				847CF525184D0BA800758A18 /* Start.h */,
 				847CF526184D0BA800758A18 /* Start.m */,
+				84341867188D8642009AB02A /* LevelBase.h */,
+				84341868188D8642009AB02A /* LevelBase.m */,
 				847CF513184C13AA00758A18 /* LevelOne.h */,
 				847CF514184C13AA00758A18 /* LevelOne.m */,
 				84A04D75188B5D70005C3AE8 /* LevelTwo.h */,
@@ -1284,6 +1289,7 @@
 				847CF432184A513000758A18 /* CCTextureAtlas.m in Sources */,
 				847CF4E0184A513000758A18 /* utility.c in Sources */,
 				847CF48C184A513000758A18 /* CCVertex.m in Sources */,
+				84341869188D8642009AB02A /* LevelBase.m in Sources */,
 				847CF492184A513000758A18 /* NSThread+performBlock.m in Sources */,
 				847CF399184A512F00758A18 /* CCActionTiledGrid.m in Sources */,
 				847CF3E0184A512F00758A18 /* CCMenuItem.m in Sources */,
