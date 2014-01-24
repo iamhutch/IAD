@@ -68,7 +68,7 @@
                                                                    target:self
                                                                  selector:@selector(startLevel:)
                                       ];
-        startMenu.position = ccp(surface.width/5.0f, surface.height*0.4f);
+        startMenu.position = ccp(surface.width/4.0f, surface.height*0.4f);
         startMenu.tag = 0;
 
         CCMenuItemImage *helpMenu = [CCMenuItemImage itemWithNormalImage:@"menu_help.png"
@@ -77,7 +77,7 @@
                                                                         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Help node]]];
                                                                     }
                                       ];
-        helpMenu.position = ccp(surface.width/6.0f, surface.height*0.27f);
+        helpMenu.position = ccp(surface.width/4.0f, surface.height*0.29f);
         helpMenu.tag = 1;
 
         CCMenuItemImage *creditMenu = [CCMenuItemImage itemWithNormalImage:@"menu_credits.png"
@@ -86,7 +86,7 @@
                                                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Credits node]]];
                                                                    }
                                      ];
-        creditMenu.position = ccp(surface.width/5.0f, surface.height*0.17f);
+        creditMenu.position = ccp(surface.width/4.0f, surface.height*0.19f);
         creditMenu.tag = 2;
 
         CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
@@ -94,7 +94,7 @@
                                                                     target:self
                                                                   selector:@selector(loadLeadershipView)
                                        ];
-        leaderboardMenu.position = ccp(surface.width/5.0f, surface.height*0.05f);
+        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.07f);
         leaderboardMenu.tag = 3;
         
 
