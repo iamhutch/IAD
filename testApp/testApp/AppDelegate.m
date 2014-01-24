@@ -7,7 +7,7 @@
 //
 
 #import "cocos2d.h"
-
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "SimpleAudioEngine.h"
@@ -153,7 +153,12 @@
     // make main window visible
 	[window_ makeKeyAndVisible];
 	
-	return YES;
+    // SETUP PARSE
+    [Parse setApplicationId:@"qg9OYZaAjQPhqYU0hMK3GKGNjCU53QZd8fibZrli"
+                  clientKey:@"DrdNwrkYTauA3H2yjRsfIxCTxFDbIczNG7CatUGd"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+	
+    return YES;
 }
 
 

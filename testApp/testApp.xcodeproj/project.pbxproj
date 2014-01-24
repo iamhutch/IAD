@@ -27,6 +27,8 @@
 		840BDC431851810400AFCBCC /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 840BDC421851810400AFCBCC /* bar.png */; };
 		840E8CEA1888D2E60022B986 /* bg-repeat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE81888D2E60022B986 /* bg-repeat1.png */; };
 		840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE91888D2E60022B986 /* bg-repeat2.png */; };
+		8421A08E1892096B007088B1 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A08C1892096B007088B1 /* LeaderboardViewController.m */; };
+		8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A08D1892096B007088B1 /* LeaderboardViewController.xib */; };
 		84341869188D8642009AB02A /* LevelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84341868188D8642009AB02A /* LevelBase.m */; };
 		847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF347184A512E00758A18 /* QuartzCore.framework */; };
 		847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF349184A512E00758A18 /* OpenGLES.framework */; };
@@ -203,6 +205,16 @@
 		84A7A8751856B027001870B5 /* button-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8741856B027001870B5 /* button-pause.png */; };
 		84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8761856B083001870B5 /* button-pause-selected.png */; };
 		84B37CF7188B828400449E50 /* woodchuck-slide.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B37CF6188B828400449E50 /* woodchuck-slide.png */; };
+		84EDCFA91890B4AF0021EC99 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDCFA81890B4AF0021EC99 /* DBManager.m */; };
+		84FD9726188F778A00BA5018 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9725188F778A00BA5018 /* libsqlite3.0.dylib */; };
+		84FD9728188F78AC00BA5018 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9727188F78AC00BA5018 /* Parse.framework */; };
+		84FD972A188F78CA00BA5018 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9729188F78CA00BA5018 /* CFNetwork.framework */; };
+		84FD972C188F78DB00BA5018 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD972B188F78DB00BA5018 /* CoreLocation.framework */; };
+		84FD972E188F78E700BA5018 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD972D188F78E700BA5018 /* libz.dylib */; };
+		84FD9730188F78EF00BA5018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD972F188F78EF00BA5018 /* MobileCoreServices.framework */; };
+		84FD9732188F78FA00BA5018 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9731188F78FA00BA5018 /* Security.framework */; };
+		84FD9734188F78FE00BA5018 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9733188F78FE00BA5018 /* StoreKit.framework */; };
+		84FD9736188F790600BA5018 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9735188F790600BA5018 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +238,9 @@
 		840BDC421851810400AFCBCC /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = Resources/bar.png; sourceTree = "<group>"; };
 		840E8CE81888D2E60022B986 /* bg-repeat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat1.png"; sourceTree = "<group>"; };
 		840E8CE91888D2E60022B986 /* bg-repeat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-repeat2.png"; sourceTree = "<group>"; };
+		8421A08B1892096B007088B1 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
+		8421A08C1892096B007088B1 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		8421A08D1892096B007088B1 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
 		84341867188D8642009AB02A /* LevelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelBase.h; sourceTree = "<group>"; };
 		84341868188D8642009AB02A /* LevelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelBase.m; sourceTree = "<group>"; };
 		847CF344184A512E00758A18 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,6 +571,17 @@
 		84A7A8741856B027001870B5 /* button-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause.png"; path = "Resources/button-pause.png"; sourceTree = "<group>"; };
 		84A7A8761856B083001870B5 /* button-pause-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause-selected.png"; path = "Resources/button-pause-selected.png"; sourceTree = "<group>"; };
 		84B37CF6188B828400449E50 /* woodchuck-slide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodchuck-slide.png"; sourceTree = "<group>"; };
+		84EDCFA71890B4AE0021EC99 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		84EDCFA81890B4AF0021EC99 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		84FD9725188F778A00BA5018 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		84FD9727188F78AC00BA5018 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		84FD9729188F78CA00BA5018 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		84FD972B188F78DB00BA5018 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		84FD972D188F78E700BA5018 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		84FD972F188F78EF00BA5018 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		84FD9731188F78FA00BA5018 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		84FD9733188F78FE00BA5018 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		84FD9735188F790600BA5018 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,15 +589,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FD9736188F790600BA5018 /* SystemConfiguration.framework in Frameworks */,
+				84FD9734188F78FE00BA5018 /* StoreKit.framework in Frameworks */,
+				84FD9732188F78FA00BA5018 /* Security.framework in Frameworks */,
+				847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */,
+				84FD9730188F78EF00BA5018 /* MobileCoreServices.framework in Frameworks */,
+				84FD972E188F78E700BA5018 /* libz.dylib in Frameworks */,
+				84FD972C188F78DB00BA5018 /* CoreLocation.framework in Frameworks */,
+				847CF356184A512E00758A18 /* CoreGraphics.framework in Frameworks */,
+				84FD972A188F78CA00BA5018 /* CFNetwork.framework in Frameworks */,
+				847CF34E184A512E00758A18 /* AudioToolbox.framework in Frameworks */,
+				84FD9726188F778A00BA5018 /* libsqlite3.0.dylib in Frameworks */,
 				847CF34C184A512E00758A18 /* OpenAL.framework in Frameworks */,
 				847CF352184A512E00758A18 /* UIKit.framework in Frameworks */,
-				847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */,
 				847CF350184A512E00758A18 /* AVFoundation.framework in Frameworks */,
-				847CF356184A512E00758A18 /* CoreGraphics.framework in Frameworks */,
+				84FD9728188F78AC00BA5018 /* Parse.framework in Frameworks */,
 				847CF358184A512E00758A18 /* CoreText.framework in Frameworks */,
 				847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */,
 				847CF354184A512E00758A18 /* Foundation.framework in Frameworks */,
-				847CF34E184A512E00758A18 /* AudioToolbox.framework in Frameworks */,
 				847CF35A184A512E00758A18 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,6 +714,15 @@
 		847CF346184A512E00758A18 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84FD9735188F790600BA5018 /* SystemConfiguration.framework */,
+				84FD9733188F78FE00BA5018 /* StoreKit.framework */,
+				84FD9731188F78FA00BA5018 /* Security.framework */,
+				84FD972F188F78EF00BA5018 /* MobileCoreServices.framework */,
+				84FD972D188F78E700BA5018 /* libz.dylib */,
+				84FD972B188F78DB00BA5018 /* CoreLocation.framework */,
+				84FD9729188F78CA00BA5018 /* CFNetwork.framework */,
+				84FD9727188F78AC00BA5018 /* Parse.framework */,
+				84FD9725188F778A00BA5018 /* libsqlite3.0.dylib */,
 				847CF347184A512E00758A18 /* QuartzCore.framework */,
 				847CF349184A512E00758A18 /* OpenGLES.framework */,
 				847CF34B184A512E00758A18 /* OpenAL.framework */,
@@ -698,6 +742,8 @@
 			children = (
 				847CF4EC184A513100758A18 /* AppDelegate.h */,
 				847CF4ED184A513100758A18 /* AppDelegate.m */,
+				84EDCFA71890B4AE0021EC99 /* DBManager.h */,
+				84EDCFA81890B4AF0021EC99 /* DBManager.m */,
 				847CF4F2184A513100758A18 /* IntroLayer.h */,
 				847CF4F3184A513100758A18 /* IntroLayer.m */,
 				847CF525184D0BA800758A18 /* Start.h */,
@@ -719,6 +765,9 @@
 				847CF35C184A512E00758A18 /* Resources */,
 				847CF374184A512E00758A18 /* libs */,
 				847CF4E8184A513100758A18 /* Supporting Files */,
+				8421A08B1892096B007088B1 /* LeaderboardViewController.h */,
+				8421A08C1892096B007088B1 /* LeaderboardViewController.m */,
+				8421A08D1892096B007088B1 /* LeaderboardViewController.xib */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -1181,6 +1230,7 @@
 			files = (
 				8405EF28185D568E00D905D4 /* wood-3.png in Resources */,
 				847CF524184D088E00758A18 /* music.caf in Resources */,
+				8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */,
 				847CF522184C474400758A18 /* hit.caf in Resources */,
 				847CF51F184C43F300758A18 /* crunch.caf in Resources */,
 				8405EF26185D568E00D905D4 /* wood-1.png in Resources */,
@@ -1295,6 +1345,7 @@
 				847CF3E0184A512F00758A18 /* CCMenuItem.m in Sources */,
 				847CF37B184A512E00758A18 /* CCActionCamera.m in Sources */,
 				847CF4AD184A513000758A18 /* CDXPropertyModifierAction.m in Sources */,
+				84EDCFA91890B4AF0021EC99 /* DBManager.m in Sources */,
 				847CF47D184A513000758A18 /* CCArray.m in Sources */,
 				847CF4DA184A513000758A18 /* plane.c in Sources */,
 				847CF486184A513000758A18 /* CCProfiling.m in Sources */,
@@ -1334,6 +1385,7 @@
 				847CF496184A513000758A18 /* TGAlib.m in Sources */,
 				847CF39F184A512F00758A18 /* CCAnimation.m in Sources */,
 				847CF4CA184A513000758A18 /* aabb.c in Sources */,
+				8421A08E1892096B007088B1 /* LeaderboardViewController.m in Sources */,
 				847CF441184A513000758A18 /* CCTMXObjectGroup.m in Sources */,
 				847CF4A3184A513000758A18 /* CDAudioManager.m in Sources */,
 				847CF527184D0BA800758A18 /* Start.m in Sources */,
@@ -1396,8 +1448,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1415,8 +1467,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1426,6 +1478,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/admin/Documents/Full-Sail/IAD\\ 1401/IAD/testApp",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = testApp/Prefix.pch;
@@ -1435,7 +1491,6 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
-					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1448,6 +1503,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/admin/Documents/Full-Sail/IAD\\ 1401/IAD/testApp",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = testApp/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"testApp/libs/kazmath/include\"";
@@ -1456,7 +1515,6 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
-					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

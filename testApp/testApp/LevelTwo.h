@@ -9,6 +9,9 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
+#import <Parse/Parse.h>
+#import "LevelBase.h"
+
 
 @interface LevelTwo : CCLayer
 {
@@ -30,6 +33,13 @@
     int _gameLevel;
     CCSprite *woodchuckWalk;
     CCSprite *woodchuckHit;
+    float _score;
+    NSTimer *_scoreTimer;
+    CCLabelTTF *timerLabel;
+    int timer;
+    NSString *username;
+    LevelBase *baseLevel;
+    int saveScoreOnce;
 
 }
 

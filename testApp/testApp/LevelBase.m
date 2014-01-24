@@ -23,8 +23,7 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"hit.caf"];
     winSize = [CCDirector sharedDirector].winSize;
     surface = [CCDirector sharedDirector].winSizeInPixels;
-    
-    
+
     // BACKGROUND
     if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
     {
@@ -192,6 +191,31 @@
     }
 }
 
+// CALCULATE SCORE
+- (float)calculateScore:(float)timerValue
+{
+    // GET OUR LEVEL TO DETERMINE VALUE OF POINT BASE
+    int _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
+    
+    // FORMULA TO GET REALISTIC SCORE
+    float _timerScore = ((100.0f - timerValue) * 0.01f);
+    
+    // SWITCH BASED ON GAME LEVEL JUST COMPLETED
+    switch(_gameLevel) {
+            
+        case 1:
+            _calculatedScore = 1000.0f * _timerScore;
+            break;
+        case 2:
+            _calculatedScore = 2000.0f * _timerScore;
+            break;
+        case 3:
+            _calculatedScore = 3000.0f * _timerScore;
+            break;
+    }
+    NSLog(@"TIMERVALUE: %f", timerValue);
+    return _calculatedScore;
+}
 
 
 @end

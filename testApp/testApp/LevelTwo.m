@@ -9,7 +9,6 @@
 #import "LevelTwo.h"
 #import "GameOver.h"
 #import "Start.h"
-#import "LevelBase.h"
 
 @implementation LevelTwo
 
@@ -35,9 +34,11 @@
         
         winSize = [CCDirector sharedDirector].winSize;
         surface = [CCDirector sharedDirector].winSizeInPixels;
-        
+        baseLevel = [[LevelBase alloc] init];
+        saveScoreOnce = 0;
+
+
         // BACKGROUND
-        LevelBase *baseLevel = [[LevelBase alloc] init];
         background = baseLevel._background;
         foreground = baseLevel._foreground;
 		[self addChild:background z:0];
@@ -53,7 +54,11 @@
         CCLabelTTF *levelLabel = baseLevel._levelLabel;
         levelLabel.string = @"Level 2";
         [self addChild:levelLabel];
-        
+        // -- TIMER LABEL
+        timerLabel = [CCLabelTTF labelWithString:@"0:00" fontName:@"Helvetica" fontSize:18];
+        timerLabel.position = ccp(winSize.width*0.05f, winSize.height*0.90f);
+        [self addChild:timerLabel];
+       
         
         // CREATE MY BUTTONS
         CCMenu *pauseMenu = baseLevel._pauseMenu;
@@ -87,6 +92,14 @@
         [self sendTractor];  // START OUR TRACTOR ROLLING
         [self sendWood];
         
+        // RESET TIMER AND START IT
+        timer = 0;
+        _scoreTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self
+                                                     selector:@selector(increaseTimer)
+                                                     userInfo:nil
+                                                      repeats:YES];
+
         // ALLOW TOUCHES
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
                                                                   priority:0
@@ -245,16 +258,46 @@
     
     // IF WOODCHUCK IS SAFELY OFFSCREEN, TAKE US BACK TO START
     if (woodchuckWalk.position.x > winSize.width) {
-        // INCREASE GAME LEVEL FROM 2 TO 3
-        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];
-        _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
         
-        NSLog(@"CURRENT GAME LEVEL: %i", _gameLevel);
-        
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Start node] ]];
+        if (saveScoreOnce == 0)
+        {
+            // GET USERNAME
+            NSArray *_hostNameArray = [[NSHost currentHost] names];
+            username = [_hostNameArray objectAtIndex:0];
+            
+            // CALCULATE SCORE BEFORE LEVEL IS INCREASED
+            _score = [baseLevel calculateScore:(float)timer];
+            _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
+            
+            PFObject *scoreObject = [PFObject objectWithClassName:@"topscores"];
+            scoreObject[@"user"] = username;
+            scoreObject[@"score"] = [NSNumber numberWithFloat:_score];
+            scoreObject[@"level"] = [NSNumber numberWithInt:_gameLevel];
+            [scoreObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    // The gameScore saved successfully.
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Start node] ]];
+                } else {
+                    // There was an error saving the gameScore.
+                    NSLog(@"%@", error);
+                }
+            }];
+            
+            // INCREASE GAME LEVEL FROM 2 TO 3
+            [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];
+            
+            saveScoreOnce++;
+        }
     }
     
 }
+
+-(void)increaseTimer
+{
+    timer += 1;
+    timerLabel.string = [NSString stringWithFormat:@":%i", timer];
+}
+
 
 - (void) dealloc
 {

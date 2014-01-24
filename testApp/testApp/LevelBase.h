@@ -30,6 +30,7 @@
     CCSprite *_wood2;
     CCSprite *_fence;
     bool gamePause;
+    float _calculatedScore;
 }
 
 @property (readonly) NSString *woodchuckString;
@@ -49,6 +50,6 @@
 @property (readonly) CCSprite *_wood2;
 @property (readonly) CCSprite *_fence;
 
-
+- (float)calculateScore:(float)timerValue;
 
 @end
