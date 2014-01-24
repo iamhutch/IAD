@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface LeaderboardViewController : UIViewController
+@interface LeaderboardViewController : UIViewController <UITableViewDelegate>
+{
+    IBOutlet UITableView *scoreTableView;
+    NSMutableArray *userName;
+    NSMutableArray *level;
+    NSMutableArray *score;
+    NSMutableArray *date;
+    NSArray *resultArray;
+}
+
+-(IBAction)onClick:(id)sender;
 
 @end

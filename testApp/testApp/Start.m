@@ -12,6 +12,7 @@
 #import "LevelThree.h"
 #import "Credits.h"
 #import "Help.h"
+#import "LeaderboardViewController.h"
 
 @implementation Start
 
@@ -88,11 +89,20 @@
         creditMenu.position = ccp(surface.width/4.0f, surface.height*0.15f);
         creditMenu.tag = 2;
 
-        CCMenu *menuStart = [CCMenu menuWithItems:startMenu, helpMenu, creditMenu, nil];
+        CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
+                                                             selectedImage:nil
+                                                                    target:self
+                                                                  selector:@selector(loadLeadershipView)
+                                       ];
+        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.10f);
+        leaderboardMenu.tag = 2;
+        
+
+        
+        CCMenu *menuStart = [CCMenu menuWithItems:startMenu, helpMenu, creditMenu, leaderboardMenu, nil];
         menuStart.position = CGPointZero;
         [self addChild:menuStart z:10];
 
-        
         
     }
     return self;
@@ -117,6 +127,13 @@
         default:
             break;
     }
+}
+- (void)loadLeadershipView
+{
+    LeaderboardViewController *leaderView = [[LeaderboardViewController alloc] init];
+    AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+    [app.navController pushViewController:leaderView animated:YES];
+    [[CCDirector sharedDirector] pause];
 }
 
 

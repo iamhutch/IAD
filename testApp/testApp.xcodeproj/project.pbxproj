@@ -29,6 +29,8 @@
 		840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 840E8CE91888D2E60022B986 /* bg-repeat2.png */; };
 		8421A08E1892096B007088B1 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A08C1892096B007088B1 /* LeaderboardViewController.m */; };
 		8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A08D1892096B007088B1 /* LeaderboardViewController.xib */; };
+		8421A09218921DD6007088B1 /* scores.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A09118921DD6007088B1 /* scores.m */; };
+		8421A094189226C9007088B1 /* menu_leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8421A093189226C9007088B1 /* menu_leaderboard.png */; };
 		84341869188D8642009AB02A /* LevelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84341868188D8642009AB02A /* LevelBase.m */; };
 		847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF347184A512E00758A18 /* QuartzCore.framework */; };
 		847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF349184A512E00758A18 /* OpenGLES.framework */; };
@@ -241,6 +243,9 @@
 		8421A08B1892096B007088B1 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		8421A08C1892096B007088B1 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
 		8421A08D1892096B007088B1 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
+		8421A09018921DD6007088B1 /* scores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scores.h; sourceTree = "<group>"; };
+		8421A09118921DD6007088B1 /* scores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scores.m; sourceTree = "<group>"; };
+		8421A093189226C9007088B1 /* menu_leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_leaderboard.png; sourceTree = "<group>"; };
 		84341867188D8642009AB02A /* LevelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelBase.h; sourceTree = "<group>"; };
 		84341868188D8642009AB02A /* LevelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelBase.m; sourceTree = "<group>"; };
 		847CF344184A512E00758A18 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -762,12 +767,14 @@
 				8486F9471860D46B00168A87 /* Help.m */,
 				8486F93C185FF62300168A87 /* Credits.h */,
 				8486F93D185FF62300168A87 /* Credits.m */,
-				847CF35C184A512E00758A18 /* Resources */,
-				847CF374184A512E00758A18 /* libs */,
-				847CF4E8184A513100758A18 /* Supporting Files */,
 				8421A08B1892096B007088B1 /* LeaderboardViewController.h */,
 				8421A08C1892096B007088B1 /* LeaderboardViewController.m */,
 				8421A08D1892096B007088B1 /* LeaderboardViewController.xib */,
+				8421A09018921DD6007088B1 /* scores.h */,
+				8421A09118921DD6007088B1 /* scores.m */,
+				847CF35C184A512E00758A18 /* Resources */,
+				847CF374184A512E00758A18 /* libs */,
+				847CF4E8184A513100758A18 /* Supporting Files */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -778,6 +785,7 @@
 				84A04D7B188B75C3005C3AE8 /* fence.png */,
 				8486F940185FF95900168A87 /* menu_credits.png */,
 				8486F941185FF95900168A87 /* menu_help.png */,
+				8421A093189226C9007088B1 /* menu_leaderboard.png */,
 				8486F942185FF95900168A87 /* menu_start.png */,
 				84A7A8741856B027001870B5 /* button-pause.png */,
 				84A7A8761856B083001870B5 /* button-pause-selected.png */,
@@ -1263,6 +1271,7 @@
 				84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */,
 				8405EF2D185D568E00D905D4 /* wood-8.png in Resources */,
 				8486F94E18627F1100168A87 /* help_ipad_hd.png in Resources */,
+				8421A094189226C9007088B1 /* menu_leaderboard.png in Resources */,
 				8486F945185FF95900168A87 /* menu_start.png in Resources */,
 				840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */,
 				847CF36A184A512E00758A18 /* Icon-Small.png in Resources */,
@@ -1394,6 +1403,7 @@
 				847CF4A7184A513000758A18 /* CDOpenALSupport.m in Sources */,
 				847CF38A184A512E00758A18 /* CCActionInstant.m in Sources */,
 				847CF3AB184A512F00758A18 /* CCClippingNode.m in Sources */,
+				8421A09218921DD6007088B1 /* scores.m in Sources */,
 				847CF42F184A513000758A18 /* CCTexture2D.m in Sources */,
 				847CF444184A513000758A18 /* CCTMXTiledMap.m in Sources */,
 				847CF405184A512F00758A18 /* CCRenderTexture.m in Sources */,
