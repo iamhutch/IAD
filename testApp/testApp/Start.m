@@ -68,8 +68,9 @@
                                                                    target:self
                                                                  selector:@selector(startLevel:)
                                       ];
-        startMenu.position = ccp(surface.width/4.0f, surface.height*0.4f);
+        startMenu.position = ccp(surface.width/4.0f, surface.height*0.42f);
         startMenu.tag = 0;
+        startMenu.releaseBlockAtCleanup = NO;
 
         CCMenuItemImage *helpMenu = [CCMenuItemImage itemWithNormalImage:@"menu_help.png"
                                                             selectedImage:nil
@@ -77,8 +78,9 @@
                                                                         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Help node]]];
                                                                     }
                                       ];
-        helpMenu.position = ccp(surface.width/4.0f, surface.height*0.29f);
+        helpMenu.position = ccp(surface.width/4.0f, surface.height*0.31f);
         helpMenu.tag = 1;
+        helpMenu.releaseBlockAtCleanup = NO;
 
         CCMenuItemImage *creditMenu = [CCMenuItemImage itemWithNormalImage:@"menu_credits.png"
                                                            selectedImage:nil
@@ -86,22 +88,24 @@
                                                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Credits node]]];
                                                                    }
                                      ];
-        creditMenu.position = ccp(surface.width/4.0f, surface.height*0.19f);
+        creditMenu.position = ccp(surface.width/4.0f, surface.height*0.21f);
         creditMenu.tag = 2;
+        creditMenu.releaseBlockAtCleanup = NO;
 
         CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
                                                              selectedImage:nil
                                                                     target:self
                                                                   selector:@selector(loadLeadershipView)
                                        ];
-        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.07f);
+        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.09f);
         leaderboardMenu.tag = 3;
+        leaderboardMenu.releaseBlockAtCleanup = NO;
         
 
         
         CCMenu *menuStart = [CCMenu menuWithItems:startMenu, helpMenu, creditMenu, leaderboardMenu, nil];
         menuStart.position = CGPointZero;
-        [self addChild:menuStart z:10];
+        [self addChild:menuStart z:20];
 
         
     }
