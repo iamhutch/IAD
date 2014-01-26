@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testApp/LocalViewController.m"
-            timestampString = "412404651.680551"
+            timestampString = "412405863.300985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-sortTable:"
             landmarkType = "5">
          </BreakpointContent>

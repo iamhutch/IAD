@@ -9,7 +9,6 @@
 #import "LocalViewController.h"
 #import "DBManager.h"
 #import "scores.h"
-#import "CustomTableCell.h"
 
 @interface LocalViewController ()
 
@@ -45,20 +44,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CustomTableCell";
+    static NSString *CellIdentifier = @"Cell";
     
     // setup table cells
-    CustomTableCell *cell = (CustomTableCell*)[scoreTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [scoreTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-            cell.titleLabel.text  = [NSString stringWithFormat:@"%@",((scores *) [leaderboardArray objectAtIndex:indexPath.row])._user];
-                
-            NSString *levelString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._level];
-            NSString *scoreString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
-            cell.subTitleLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreString, levelString];
+    
+    cell.textLabel.text  = [NSString stringWithFormat:@"%@",((scores *) [leaderboardArray objectAtIndex:indexPath.row])._user];
+    
+    NSString *levelString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._level];
+    NSString *scoreString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreString, levelString];
     
     return cell;
 }
