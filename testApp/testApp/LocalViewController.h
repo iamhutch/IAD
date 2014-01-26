@@ -12,7 +12,10 @@
 {
     IBOutlet UITableView *scoreTableView;
     NSMutableArray *leaderboardArray;
+    NSString *scoreShareString;
 }
+
+@property (strong, nonatomic) NSString *scoreShareString;
 
 -(IBAction)onClick:(id)sender;
 -(IBAction)sortTable:(id)sender;

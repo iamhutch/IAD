@@ -30,9 +30,5 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)share:(id)sender
-{
-    
-}
 
 @end

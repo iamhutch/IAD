@@ -201,6 +201,8 @@
 		8486F94E18627F1100168A87 /* help_ipad_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94A18627F1000168A87 /* help_ipad_hd.png */; };
 		8486F94F18627F1100168A87 /* help_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94B18627F1000168A87 /* help_ipad.png */; };
 		8486F95018627F1100168A87 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486F94C18627F1000168A87 /* help.png */; };
+		848FD46B1894DCC00030EB63 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848FD46A1894DCC00030EB63 /* Social.framework */; };
+		848FD46D1894DDF20030EB63 /* social_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 848FD46C1894DDF20030EB63 /* social_share.png */; };
 		84A04D77188B5D70005C3AE8 /* LevelTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D76188B5D70005C3AE8 /* LevelTwo.m */; };
 		84A04D7A188B6F4F005C3AE8 /* LevelThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A04D79188B6F4F005C3AE8 /* LevelThree.m */; };
 		84A04D7C188B75C3005C3AE8 /* fence.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A04D7B188B75C3005C3AE8 /* fence.png */; };
@@ -576,6 +578,8 @@
 		8486F94A18627F1000168A87 /* help_ipad_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_ipad_hd.png; path = Resources/help_ipad_hd.png; sourceTree = "<group>"; };
 		8486F94B18627F1000168A87 /* help_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_ipad.png; path = Resources/help_ipad.png; sourceTree = "<group>"; };
 		8486F94C18627F1000168A87 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help.png; path = Resources/help.png; sourceTree = "<group>"; };
+		848FD46A1894DCC00030EB63 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		848FD46C1894DDF20030EB63 /* social_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social_share.png; sourceTree = "<group>"; };
 		84A04D75188B5D70005C3AE8 /* LevelTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTwo.h; sourceTree = "<group>"; };
 		84A04D76188B5D70005C3AE8 /* LevelTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTwo.m; sourceTree = "<group>"; };
 		84A04D78188B6F4F005C3AE8 /* LevelThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThree.h; sourceTree = "<group>"; };
@@ -613,6 +617,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848FD46B1894DCC00030EB63 /* Social.framework in Frameworks */,
 				84FD9736188F790600BA5018 /* SystemConfiguration.framework in Frameworks */,
 				84FD9734188F78FE00BA5018 /* StoreKit.framework in Frameworks */,
 				84FD9732188F78FA00BA5018 /* Security.framework in Frameworks */,
@@ -738,6 +743,7 @@
 		847CF346184A512E00758A18 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				848FD46A1894DCC00030EB63 /* Social.framework */,
 				84FD9735188F790600BA5018 /* SystemConfiguration.framework */,
 				84FD9733188F78FE00BA5018 /* StoreKit.framework */,
 				84FD9731188F78FA00BA5018 /* Security.framework */,
@@ -810,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				84B615D01894A014004483CE /* menu_locals.png */,
+				848FD46C1894DDF20030EB63 /* social_share.png */,
 				84B615D61894A35C004483CE /* menu_backs.png */,
 				84B615D11894A014004483CE /* menu_onlines.png */,
 				84A04D7B188B75C3005C3AE8 /* fence.png */,
@@ -1338,6 +1345,7 @@
 				8405EF18185D567D00D905D4 /* woodchuck-anim-ipadhd.png in Resources */,
 				8486F92F185FF5DA00168A87 /* bg.png in Resources */,
 				8486F936185FF5DA00168A87 /* gameover_ipad.png in Resources */,
+				848FD46D1894DDF20030EB63 /* social_share.png in Resources */,
 				8486F94D18627F1100168A87 /* help_hd.png in Resources */,
 				847CF50B184C108E00758A18 /* tractor.png in Resources */,
 			);

@@ -9,12 +9,15 @@
 #import "LocalViewController.h"
 #import "DBManager.h"
 #import "scores.h"
+#import "CustomTableCell.h"
+#import <Social/Social.h>
 
 @interface LocalViewController ()
 
 @end
 
 @implementation LocalViewController
+@synthesize scoreShareString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,30 +40,105 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return leaderboardArray.count;
+    // IF WE HAVE SCORES, SHOW IT
+    if (leaderboardArray != nil){
+        return leaderboardArray.count;
+    }
+    return 1;
 }
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
+    static NSString *CellIdentifier = @"CustomTableCell";
     
     // setup table cells
-    UITableViewCell *cell = [scoreTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomTableCell *cell = (CustomTableCell*)[scoreTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+       // cell = [[CustomTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    cell.textLabel.text  = [NSString stringWithFormat:@"%@",((scores *) [leaderboardArray objectAtIndex:indexPath.row])._user];
+    // IF WE HAVE SCORES, SHOW IT
+    if (leaderboardArray != nil)
+    {
+        cell.titleLabel.text  = [NSString stringWithFormat:@"%@",((scores *) [leaderboardArray objectAtIndex:indexPath.row])._user];
+        
+        NSString *levelString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._level];
+        NSString *scoreString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
+        scoreShareString = scoreString;
+        cell.subTitleLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreString, levelString];
+        
+        UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [shareButton setFrame:CGRectMake(500, 6, 50, 50)];
+        [shareButton setBackgroundImage:[UIImage imageNamed:@"social_share.png"] forState:UIControlStateNormal];
+        [shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:shareButton];
+
+    }
+    // OTHERWISE, SHOW AN EMPTY TEXT
+    else
+    {
+        cell.titleLabel.text = @"No scores found.";
+        cell.subTitleLabel.text = @"Please play one game first then come back. ";
+    }
     
-    NSString *levelString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._level];
-    NSString *scoreString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreString, levelString];
     
     return cell;
 }
+
+- (void)shareButtonPressed:(id)sender
+{
+    // Get indexPath so I know what data to share
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:scoreTableView];
+    NSIndexPath *indexPath = [scoreTableView indexPathForRowAtPoint:buttonPosition];
+
+    scoreShareString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
+    
+    NSLog(@"Share button pressed.");
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        
+        tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
+            switch(result) {
+                    //  This means the user cancelled without sending the Tweet
+                case SLComposeViewControllerResultCancelled:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Post Cancelled" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    [scoreTableView reloadData];
+                    break;
+                }
+                    //  This means the user hit 'Send'
+                case SLComposeViewControllerResultDone:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Successful" message:@"Tweet was successfully posted." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    [scoreTableView reloadData];
+                    break;
+                }
+            }
+            
+            //  dismiss the Tweet Sheet
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:NO completion:^{
+                    //NSLog(@"Tweet Sheet has been dismissed.");
+                }];
+            });
+        };
+        
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"I scored %@!\n#WoodchuckRun", scoreShareString]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+}
+
 
 -(IBAction)sortTable:(id)sender
 {
