@@ -14,6 +14,7 @@
 @end
 
 @implementation LeaderboardViewController
+@synthesize leaderboardArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,32 +30,38 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    leaderboardArray = [[NSMutableArray alloc] init];
+
     PFQuery *queryLevel1 = [PFQuery queryWithClassName:@"topscores"];
     [queryLevel1 orderByDescending:@"score"];
+    [queryLevel1 whereKey:@"level" equalTo:@1];
+    queryLevel1.limit = 1;
+    level1Array = [queryLevel1 findObjects];
+    [self.leaderboardArray addObjectsFromArray:level1Array];
 
-    resultArray = [queryLevel1 findObjects];
-    
-    /*[queryLevel1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                
-                [resultArray addObject:object];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];*/
+    PFQuery *queryLevel2 = [PFQuery queryWithClassName:@"topscores"];
+    [queryLevel2 orderByDescending:@"score"];
+    [queryLevel2 whereKey:@"level" equalTo:@2];
+    queryLevel2.limit = 1;
+    level2Array = [queryLevel2 findObjects];
+    [self.leaderboardArray addObjectsFromArray:level2Array];
+
+    PFQuery *queryLevel3 = [PFQuery queryWithClassName:@"topscores"];
+    [queryLevel3 orderByDescending:@"score"];
+    [queryLevel3 whereKey:@"level" equalTo:@3];
+    queryLevel3.limit = 1;
+    level3Array = [queryLevel3 findObjects];
+    [self.leaderboardArray addObjectsFromArray:level3Array];
 
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return resultArray.count;
+    if (leaderboardArray != nil) {
+        return leaderboardArray.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView2 cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,12 +74,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     // FIRST LINE
-    NSString *scoreUserName = [resultArray objectAtIndex:indexPath.row][@"user"];
+    NSString *scoreUserName = [leaderboardArray objectAtIndex:indexPath.row][@"user"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", scoreUserName];
     
     // SECOND LINE
-    NSString *scoreLevel = [resultArray objectAtIndex:indexPath.row][@"level"];
-    NSString *scoreScore = [resultArray objectAtIndex:indexPath.row][@"score"];
+    NSString *scoreLevel = [leaderboardArray objectAtIndex:indexPath.row][@"level"];
+    NSString *scoreScore = [leaderboardArray objectAtIndex:indexPath.row][@"score"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreScore, scoreLevel];
 
     return cell;

@@ -16,8 +16,13 @@
     NSMutableArray *level;
     NSMutableArray *score;
     NSMutableArray *date;
-    NSArray *resultArray;
+    NSArray *level1Array;
+    NSArray *level2Array;
+    NSArray *level3Array;
+    NSMutableArray *leaderboardArray;
 }
+
+@property (nonatomic, retain) NSMutableArray *leaderboardArray;
 
 -(IBAction)onClick:(id)sender;
 

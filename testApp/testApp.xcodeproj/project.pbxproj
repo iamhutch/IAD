@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8400A67418949ED100B7D27C /* menu_leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8400A67118949ED000B7D27C /* menu_leaderboard.png */; };
+		8400A67518949ED100B7D27C /* menu_local.png in Resources */ = {isa = PBXBuildFile; fileRef = 8400A67218949ED000B7D27C /* menu_local.png */; };
+		8400A67618949ED100B7D27C /* menu_online.png in Resources */ = {isa = PBXBuildFile; fileRef = 8400A67318949ED100B7D27C /* menu_online.png */; };
 		8405EF15185D567D00D905D4 /* woodchuck-anim-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8405EF0F185D567D00D905D4 /* woodchuck-anim-hd.plist */; };
 		8405EF16185D567D00D905D4 /* woodchuck-anim-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8405EF10185D567D00D905D4 /* woodchuck-anim-hd.png */; };
 		8405EF17185D567D00D905D4 /* woodchuck-anim-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8405EF11185D567D00D905D4 /* woodchuck-anim-ipadhd.plist */; };
@@ -30,7 +33,6 @@
 		8421A08E1892096B007088B1 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A08C1892096B007088B1 /* LeaderboardViewController.m */; };
 		8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A08D1892096B007088B1 /* LeaderboardViewController.xib */; };
 		8421A09218921DD6007088B1 /* scores.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A09118921DD6007088B1 /* scores.m */; };
-		8421A094189226C9007088B1 /* menu_leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8421A093189226C9007088B1 /* menu_leaderboard.png */; };
 		84341869188D8642009AB02A /* LevelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84341868188D8642009AB02A /* LevelBase.m */; };
 		847CF348184A512E00758A18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF347184A512E00758A18 /* QuartzCore.framework */; };
 		847CF34A184A512E00758A18 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CF349184A512E00758A18 /* OpenGLES.framework */; };
@@ -207,6 +209,9 @@
 		84A7A8751856B027001870B5 /* button-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8741856B027001870B5 /* button-pause.png */; };
 		84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A7A8761856B083001870B5 /* button-pause-selected.png */; };
 		84B37CF7188B828400449E50 /* woodchuck-slide.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B37CF6188B828400449E50 /* woodchuck-slide.png */; };
+		84E6B7F218948D08007E16C0 /* LocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6B7F018948D08007E16C0 /* LocalViewController.m */; };
+		84E6B7F318948D08007E16C0 /* LocalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E6B7F118948D08007E16C0 /* LocalViewController.xib */; };
+		84E6B7F618948F56007E16C0 /* LeaderboardViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6B7F518948F56007E16C0 /* LeaderboardViews.m */; };
 		84EDCFA91890B4AF0021EC99 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDCFA81890B4AF0021EC99 /* DBManager.m */; };
 		84FD9726188F778A00BA5018 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9725188F778A00BA5018 /* libsqlite3.0.dylib */; };
 		84FD9728188F78AC00BA5018 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD9727188F78AC00BA5018 /* Parse.framework */; };
@@ -220,6 +225,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8400A67118949ED000B7D27C /* menu_leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_leaderboard.png; path = "../../../../IAD 1401/IAD/testApp/testApp/Resources/menu_leaderboard.png"; sourceTree = "<group>"; };
+		8400A67218949ED000B7D27C /* menu_local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_local.png; path = "../../../../IAD 1401/IAD/testApp/testApp/Resources/menu_local.png"; sourceTree = "<group>"; };
+		8400A67318949ED100B7D27C /* menu_online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_online.png; path = "../../../../IAD 1401/IAD/testApp/testApp/Resources/menu_online.png"; sourceTree = "<group>"; };
 		8405EF0F185D567D00D905D4 /* woodchuck-anim-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "woodchuck-anim-hd.plist"; path = "Resources/woodchuck-anim-hd.plist"; sourceTree = "<group>"; };
 		8405EF10185D567D00D905D4 /* woodchuck-anim-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "woodchuck-anim-hd.png"; path = "Resources/woodchuck-anim-hd.png"; sourceTree = "<group>"; };
 		8405EF11185D567D00D905D4 /* woodchuck-anim-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "woodchuck-anim-ipadhd.plist"; path = "Resources/woodchuck-anim-ipadhd.plist"; sourceTree = "<group>"; };
@@ -245,7 +253,6 @@
 		8421A08D1892096B007088B1 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
 		8421A09018921DD6007088B1 /* scores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scores.h; sourceTree = "<group>"; };
 		8421A09118921DD6007088B1 /* scores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scores.m; sourceTree = "<group>"; };
-		8421A093189226C9007088B1 /* menu_leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_leaderboard.png; sourceTree = "<group>"; };
 		84341867188D8642009AB02A /* LevelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelBase.h; sourceTree = "<group>"; };
 		84341868188D8642009AB02A /* LevelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelBase.m; sourceTree = "<group>"; };
 		847CF344184A512E00758A18 /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -576,6 +583,11 @@
 		84A7A8741856B027001870B5 /* button-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause.png"; path = "Resources/button-pause.png"; sourceTree = "<group>"; };
 		84A7A8761856B083001870B5 /* button-pause-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause-selected.png"; path = "Resources/button-pause-selected.png"; sourceTree = "<group>"; };
 		84B37CF6188B828400449E50 /* woodchuck-slide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodchuck-slide.png"; sourceTree = "<group>"; };
+		84E6B7EF18948D08007E16C0 /* LocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalViewController.h; sourceTree = "<group>"; };
+		84E6B7F018948D08007E16C0 /* LocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalViewController.m; sourceTree = "<group>"; };
+		84E6B7F118948D08007E16C0 /* LocalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalViewController.xib; sourceTree = "<group>"; };
+		84E6B7F418948F56007E16C0 /* LeaderboardViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViews.h; sourceTree = "<group>"; };
+		84E6B7F518948F56007E16C0 /* LeaderboardViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViews.m; sourceTree = "<group>"; };
 		84EDCFA71890B4AE0021EC99 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		84EDCFA81890B4AF0021EC99 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		84FD9725188F778A00BA5018 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -767,11 +779,16 @@
 				8486F9471860D46B00168A87 /* Help.m */,
 				8486F93C185FF62300168A87 /* Credits.h */,
 				8486F93D185FF62300168A87 /* Credits.m */,
+				84E6B7F418948F56007E16C0 /* LeaderboardViews.h */,
+				84E6B7F518948F56007E16C0 /* LeaderboardViews.m */,
 				8421A08B1892096B007088B1 /* LeaderboardViewController.h */,
 				8421A08C1892096B007088B1 /* LeaderboardViewController.m */,
 				8421A08D1892096B007088B1 /* LeaderboardViewController.xib */,
 				8421A09018921DD6007088B1 /* scores.h */,
 				8421A09118921DD6007088B1 /* scores.m */,
+				84E6B7EF18948D08007E16C0 /* LocalViewController.h */,
+				84E6B7F018948D08007E16C0 /* LocalViewController.m */,
+				84E6B7F118948D08007E16C0 /* LocalViewController.xib */,
 				847CF35C184A512E00758A18 /* Resources */,
 				847CF374184A512E00758A18 /* libs */,
 				847CF4E8184A513100758A18 /* Supporting Files */,
@@ -782,10 +799,12 @@
 		847CF35C184A512E00758A18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8400A67118949ED000B7D27C /* menu_leaderboard.png */,
+				8400A67218949ED000B7D27C /* menu_local.png */,
+				8400A67318949ED100B7D27C /* menu_online.png */,
 				84A04D7B188B75C3005C3AE8 /* fence.png */,
 				8486F940185FF95900168A87 /* menu_credits.png */,
 				8486F941185FF95900168A87 /* menu_help.png */,
-				8421A093189226C9007088B1 /* menu_leaderboard.png */,
 				8486F942185FF95900168A87 /* menu_start.png */,
 				84A7A8741856B027001870B5 /* button-pause.png */,
 				84A7A8761856B083001870B5 /* button-pause-selected.png */,
@@ -1236,6 +1255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8400A67418949ED100B7D27C /* menu_leaderboard.png in Resources */,
+				8400A67518949ED100B7D27C /* menu_local.png in Resources */,
+				8400A67618949ED100B7D27C /* menu_online.png in Resources */,
 				8405EF28185D568E00D905D4 /* wood-3.png in Resources */,
 				847CF524184D088E00758A18 /* music.caf in Resources */,
 				8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */,
@@ -1271,7 +1293,6 @@
 				84A7A8771856B083001870B5 /* button-pause-selected.png in Resources */,
 				8405EF2D185D568E00D905D4 /* wood-8.png in Resources */,
 				8486F94E18627F1100168A87 /* help_ipad_hd.png in Resources */,
-				8421A094189226C9007088B1 /* menu_leaderboard.png in Resources */,
 				8486F945185FF95900168A87 /* menu_start.png in Resources */,
 				840E8CEB1888D2E60022B986 /* bg-repeat2.png in Resources */,
 				847CF36A184A512E00758A18 /* Icon-Small.png in Resources */,
@@ -1294,6 +1315,7 @@
 				847CF36C184A512E00758A18 /* Icon-Small@2x.png in Resources */,
 				847CF364184A512E00758A18 /* Default-Landscape~ipad.png in Resources */,
 				847CF362184A512E00758A18 /* Default-568h@2x.png in Resources */,
+				84E6B7F318948D08007E16C0 /* LocalViewController.xib in Resources */,
 				8405EF17185D567D00D905D4 /* woodchuck-anim-ipadhd.plist in Resources */,
 				8486F94F18627F1100168A87 /* help_ipad.png in Resources */,
 				847CF370184A512E00758A18 /* Icon@2x.png in Resources */,
@@ -1343,6 +1365,7 @@
 				847CF3F5184A512F00758A18 /* CCParticleSystem.m in Sources */,
 				847CF44A184A513000758A18 /* CCTransition.m in Sources */,
 				847CF51C184C384100758A18 /* GameOver.m in Sources */,
+				84E6B7F618948F56007E16C0 /* LeaderboardViews.m in Sources */,
 				847CF3F2184A512F00758A18 /* CCParticleExamples.m in Sources */,
 				847CF3EF184A512F00758A18 /* CCParticleBatchNode.m in Sources */,
 				847CF432184A513000758A18 /* CCTextureAtlas.m in Sources */,
@@ -1387,6 +1410,7 @@
 				847CF4EB184A513100758A18 /* main.m in Sources */,
 				847CF469184A513000758A18 /* CCTouchHandler.m in Sources */,
 				847CF3E3184A512F00758A18 /* CCMotionStreak.m in Sources */,
+				84E6B7F218948D08007E16C0 /* LocalViewController.m in Sources */,
 				847CF462184A513000758A18 /* CCGLView.m in Sources */,
 				847CF48F184A513000758A18 /* CGPointExtension.m in Sources */,
 				847CF393184A512F00758A18 /* CCActionPageTurn3D.m in Sources */,
@@ -1497,7 +1521,7 @@
 				GCC_PREFIX_HEADER = testApp/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"testApp/libs/kazmath/include\"";
 				INFOPLIST_FILE = testApp/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -1521,7 +1545,7 @@
 				GCC_PREFIX_HEADER = testApp/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"testApp/libs/kazmath/include\"";
 				INFOPLIST_FILE = testApp/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",

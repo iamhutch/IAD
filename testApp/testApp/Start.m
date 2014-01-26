@@ -12,7 +12,8 @@
 #import "LevelThree.h"
 #import "Credits.h"
 #import "Help.h"
-#import "LeaderboardViewController.h"
+#import "LeaderboardViews.h"
+
 
 @implementation Start
 
@@ -94,8 +95,9 @@
 
         CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
                                                              selectedImage:nil
-                                                                    target:self
-                                                                  selector:@selector(loadLeadershipView)
+                                                                          block:^(id sender)  {
+                                                                              [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LeaderboardViews node]]];
+                                                                          }
                                        ];
         leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.09f);
         leaderboardMenu.tag = 3;
@@ -127,19 +129,19 @@
         case 3:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelThree node]]];
             break;
-            
         default:
             break;
     }
 }
+/*
 - (void)loadLeadershipView
 {
     LeaderboardViewController *leaderView = [[LeaderboardViewController alloc] init];
     AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
     [app.navController pushViewController:leaderView animated:YES];
-    [[CCDirector sharedDirector] pause];
+   // [[CCDirector sharedDirector] pause];
 }
 
-
+*/
 
 @end
