@@ -9,6 +9,7 @@
 #import "LevelTwo.h"
 #import "GameOver.h"
 #import "Start.h"
+#import "DBManager.h"
 
 @implementation LevelTwo
 
@@ -282,6 +283,10 @@
                     NSLog(@"%@", error);
                 }
             }];
+            
+            // SAVE INITIAL DATA TO LOCAL SQL
+            [[DBManager getSharedInstance] saveData:username score:[NSNumber numberWithFloat:_score] level:[NSNumber numberWithInt:_gameLevel]];
+
             
             // INCREASE GAME LEVEL FROM 2 TO 3
             [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];

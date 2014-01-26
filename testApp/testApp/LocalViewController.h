@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocalViewController : UIViewController
+@interface LocalViewController : UIViewController <UITableViewDelegate>
+{
+    IBOutlet UITableView *scoreTableView;
+    NSMutableArray *leaderboardArray;
+}
 
 -(IBAction)onClick:(id)sender;
-
+-(IBAction)sortTable:(id)sender;
 @end

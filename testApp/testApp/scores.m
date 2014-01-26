@@ -10,7 +10,7 @@
 
 @implementation scores
 
-@synthesize _level, _objectID, _score, _scoresDictionary, _user;
+@synthesize _level, _objectID, _score, _scoresDictionary, _user, _date;
 
 static scores *_instance = nil;
 

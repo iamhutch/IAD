@@ -10,6 +10,7 @@
 #import "GameOver.h"
 #import "Start.h"
 #import "SimpleAudioEngine.h"
+#import "DBManager.h"
 
 @implementation LevelOne
 
@@ -252,6 +253,9 @@
                 }
             }];
             
+            // SAVE INITIAL DATA TO LOCAL SQL
+            [[DBManager getSharedInstance] saveData:username score:[NSNumber numberWithFloat:_score] level:[NSNumber numberWithInt:_gameLevel]];
+       
             // INCREASE GAME LEVEL FROM 1 TO 2
             [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Level"];
             

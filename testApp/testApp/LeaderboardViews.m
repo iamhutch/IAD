@@ -60,7 +60,7 @@
 		[self addChild: background];
         
         // SETUP MENUS WITH BLOCKS
-        CCMenuItemImage *onlineMenu = [CCMenuItemImage itemWithNormalImage:@"menu_online.png"
+        CCMenuItemImage *onlineMenu = [CCMenuItemImage itemWithNormalImage:@"menu_onlines.png"
                                                                   selectedImage:nil
                                                                          target:self
                                                                        selector:@selector(loadLeadershipView)
@@ -69,7 +69,7 @@
         onlineMenu.tag = 0;
         onlineMenu.releaseBlockAtCleanup = NO;
 
-        CCMenuItemImage *localMenu = [CCMenuItemImage itemWithNormalImage:@"menu_local.png"
+        CCMenuItemImage *localMenu = [CCMenuItemImage itemWithNormalImage:@"menu_locals.png"
                                                                   selectedImage:nil
                                                                          target:self
                                                                        selector:@selector(loadLocalView)
@@ -80,18 +80,18 @@
 
         
         
-        CCLabelTTF *backLabel = [CCLabelTTF labelWithString:@"Back" fontName:@"Helvetica" fontSize:24];
-        backLabel.color = ccBLACK;
-        
-        CCMenuItem *backButton = [CCMenuItemLabel itemWithLabel:backLabel
-                                                          block:^(id sender)  {
-                                                              [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Start node]]];
-                                                          }
-                                  ];
-        backButton.position = ccp(5.0f, surface.height*0.9f);
+        CCMenuItemImage *backButton = [CCMenuItemImage itemWithNormalImage:@"menu_backs.png"
+                                                                  selectedImage:nil
+                                                                          block:^(id sender)  {
+                                                                              [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Start node]]];
+                                                                          }
+                                            ];
+        backButton.position = ccp(50.0f, surface.height*0.45f);
+        backButton.tag = 3;
+        backButton.releaseBlockAtCleanup = NO;
 
         
-        CCMenu *menuStart = [CCMenu menuWithItems: backButton, nil];
+        CCMenu *menuStart = [CCMenu menuWithItems: onlineMenu,localMenu, backButton, nil];
         menuStart.position = CGPointZero;
         [self addChild:menuStart z:20];
         

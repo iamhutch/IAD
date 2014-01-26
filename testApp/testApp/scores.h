@@ -14,6 +14,7 @@
     NSNumber *_level;
     NSNumber *_score;
     NSString *_user;
+    NSNumber *_date;
     NSDictionary *_scoresDictionary;
 }
 
@@ -21,6 +22,7 @@
 @property (nonatomic, retain) NSNumber *_level;
 @property (nonatomic, retain) NSNumber *_score;
 @property (nonatomic, retain) NSString *_user;
+@property (nonatomic, retain) NSNumber *_date;
 @property (nonatomic, retain) NSDictionary *_scoresDictionary;
 
 +(void)CreateInstance;

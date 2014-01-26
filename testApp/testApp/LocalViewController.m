@@ -7,6 +7,9 @@
 //
 
 #import "LocalViewController.h"
+#import "DBManager.h"
+#import "scores.h"
+#import "CustomTableCell.h"
 
 @interface LocalViewController ()
 
@@ -27,8 +30,46 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    leaderboardArray = [[NSMutableArray alloc] init];
+    leaderboardArray = [[DBManager getSharedInstance] findByColumn:nil findByFilter:nil showAll:YES orderBy:nil];
+    
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return leaderboardArray.count;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"CustomTableCell";
+    
+    // setup table cells
+    CustomTableCell *cell = (CustomTableCell*)[scoreTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+            cell.titleLabel.text  = [NSString stringWithFormat:@"%@",((scores *) [leaderboardArray objectAtIndex:indexPath.row])._user];
+                
+            NSString *levelString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._level];
+            NSString *scoreString = [NSString stringWithFormat:@"%@", ((scores *) [leaderboardArray objectAtIndex:indexPath.row])._score];
+            cell.subTitleLabel.text = [NSString stringWithFormat:@"Score: %@, Level: %@", scoreString, levelString];
+    
+    return cell;
+}
+
+-(IBAction)sortTable:(id)sender
+{
+    [leaderboardArray removeAllObjects];
+    leaderboardArray = [[DBManager getSharedInstance] findByColumn:NULL findByFilter:NULL showAll:NULL orderBy:@"score"];
+    [scoreTableView reloadData];
+
+}
 
 -(IBAction)onClick:(id)sender
 {

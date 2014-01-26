@@ -72,6 +72,7 @@
         startMenu.position = ccp(surface.width/4.0f, surface.height*0.42f);
         startMenu.tag = 0;
         startMenu.releaseBlockAtCleanup = NO;
+        startMenu.scale = 0.9;
 
         CCMenuItemImage *helpMenu = [CCMenuItemImage itemWithNormalImage:@"menu_help.png"
                                                             selectedImage:nil
@@ -82,6 +83,7 @@
         helpMenu.position = ccp(surface.width/4.0f, surface.height*0.31f);
         helpMenu.tag = 1;
         helpMenu.releaseBlockAtCleanup = NO;
+        helpMenu.scale = 0.9;
 
         CCMenuItemImage *creditMenu = [CCMenuItemImage itemWithNormalImage:@"menu_credits.png"
                                                            selectedImage:nil
@@ -92,6 +94,7 @@
         creditMenu.position = ccp(surface.width/4.0f, surface.height*0.21f);
         creditMenu.tag = 2;
         creditMenu.releaseBlockAtCleanup = NO;
+        creditMenu.scale = 0.75;
 
         CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
                                                              selectedImage:nil
@@ -99,9 +102,10 @@
                                                                               [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LeaderboardViews node]]];
                                                                           }
                                        ];
-        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.09f);
+        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.11f);
         leaderboardMenu.tag = 3;
         leaderboardMenu.releaseBlockAtCleanup = NO;
+        leaderboardMenu.scale = 0.75;
         
 
         

@@ -12,10 +12,6 @@
 @interface LeaderboardViewController : UIViewController <UITableViewDelegate>
 {
     IBOutlet UITableView *scoreTableView;
-    NSMutableArray *userName;
-    NSMutableArray *level;
-    NSMutableArray *score;
-    NSMutableArray *date;
     NSArray *level1Array;
     NSArray *level2Array;
     NSArray *level3Array;

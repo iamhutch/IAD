@@ -17,8 +17,7 @@
 
 + (DBManager*)getSharedInstance;
 - (BOOL)createDB;
-- (BOOL)deleteData:(NSString*)user score:(int)score level:(int)level;
-- (BOOL)saveData:(NSString*)user score:(int)score level:(int)level;
+- (BOOL)saveData:(NSString*)user score:(NSNumber*)score level:(NSNumber*)level;
 
 - (NSMutableArray*) findByColumn:(NSString*)columnName findByFilter:(NSString*)columnFilter showAll:(BOOL)showAll orderBy:(NSString*)orderBy;
 
