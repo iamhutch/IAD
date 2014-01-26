@@ -211,7 +211,7 @@
 		84B615D31894A014004483CE /* menu_onlines.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B615D11894A014004483CE /* menu_onlines.png */; };
 		84B615D71894A35C004483CE /* menu_backs.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B615D61894A35C004483CE /* menu_backs.png */; };
 		84B615E01894C707004483CE /* CustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B615DE1894C707004483CE /* CustomTableCell.m */; };
-		84B615E11894C707004483CE /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B615DF1894C707004483CE /* CustomTableCell.xib */; };
+		84B615E31894CE78004483CE /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B615E21894CE78004483CE /* CustomTableCell.xib */; };
 		84E6B7F218948D08007E16C0 /* LocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6B7F018948D08007E16C0 /* LocalViewController.m */; };
 		84E6B7F318948D08007E16C0 /* LocalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E6B7F118948D08007E16C0 /* LocalViewController.xib */; };
 		84E6B7F618948F56007E16C0 /* LeaderboardViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6B7F518948F56007E16C0 /* LeaderboardViews.m */; };
@@ -589,7 +589,7 @@
 		84B615D61894A35C004483CE /* menu_backs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_backs.png; sourceTree = "<group>"; };
 		84B615DD1894C707004483CE /* CustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableCell.h; sourceTree = "<group>"; };
 		84B615DE1894C707004483CE /* CustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableCell.m; sourceTree = "<group>"; };
-		84B615DF1894C707004483CE /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
+		84B615E21894CE78004483CE /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
 		84E6B7EF18948D08007E16C0 /* LocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalViewController.h; sourceTree = "<group>"; };
 		84E6B7F018948D08007E16C0 /* LocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalViewController.m; sourceTree = "<group>"; };
 		84E6B7F118948D08007E16C0 /* LocalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalViewController.xib; sourceTree = "<group>"; };
@@ -798,7 +798,7 @@
 				84E6B7F118948D08007E16C0 /* LocalViewController.xib */,
 				84B615DD1894C707004483CE /* CustomTableCell.h */,
 				84B615DE1894C707004483CE /* CustomTableCell.m */,
-				84B615DF1894C707004483CE /* CustomTableCell.xib */,
+				84B615E21894CE78004483CE /* CustomTableCell.xib */,
 				847CF35C184A512E00758A18 /* Resources */,
 				847CF374184A512E00758A18 /* libs */,
 				847CF4E8184A513100758A18 /* Supporting Files */,
@@ -1317,7 +1317,7 @@
 				847CF50F184C10A200758A18 /* road.png in Resources */,
 				840E8CEA1888D2E60022B986 /* bg-repeat1.png in Resources */,
 				847CF368184A512E00758A18 /* Icon-Small-50.png in Resources */,
-				84B615E11894C707004483CE /* CustomTableCell.xib in Resources */,
+				84B615E31894CE78004483CE /* CustomTableCell.xib in Resources */,
 				847CF50D184C108E00758A18 /* woodchuck.png in Resources */,
 				8405EF25185D568E00D905D4 /* wood-0.png in Resources */,
 				840BDC41185179C600AFCBCC /* woodchuck-hit01.png in Resources */,

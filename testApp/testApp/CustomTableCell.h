@@ -16,4 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *subTitleLabel;
 
+- (IBAction)share:(id)sender;
+
 @end
