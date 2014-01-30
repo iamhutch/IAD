@@ -63,6 +63,8 @@
     return self;
 }
 
+
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	return YES;

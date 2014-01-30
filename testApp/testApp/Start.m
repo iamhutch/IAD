@@ -10,9 +10,10 @@
 #import "LevelOne.h"
 #import "LevelTwo.h"
 #import "LevelThree.h"
-#import "Credits.h"
-#import "Help.h"
+#import "SettingsViewController.h"
+#import "HelpAndCredits.h"
 #import "LeaderboardViews.h"
+
 
 
 @implementation Start
@@ -74,50 +75,61 @@
         startMenu.releaseBlockAtCleanup = NO;
         startMenu.scale = 0.9;
 
-        CCMenuItemImage *helpMenu = [CCMenuItemImage itemWithNormalImage:@"menu_help.png"
+        CCMenuItemImage *settingMenu = [CCMenuItemImage itemWithNormalImage:@"menu_settings.png"
                                                             selectedImage:nil
-                                                                    block:^(id sender)  {
-                                                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Help node]]];
-                                                                    }
+                                                                     target:self
+                                                                   selector:@selector(loadSettings)
                                       ];
-        helpMenu.position = ccp(surface.width/4.0f, surface.height*0.31f);
-        helpMenu.tag = 1;
-        helpMenu.releaseBlockAtCleanup = NO;
-        helpMenu.scale = 0.9;
+        settingMenu.position = ccp(surface.width/4.0f, surface.height*0.31f);
+        settingMenu.tag = 1;
+        settingMenu.releaseBlockAtCleanup = NO;
+        settingMenu.scale = 0.9;
 
-        CCMenuItemImage *creditMenu = [CCMenuItemImage itemWithNormalImage:@"menu_credits.png"
+        CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboards.png"
                                                            selectedImage:nil
                                                                    block:^(id sender)  {
-                                                                       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Credits node]]];
+                                                                       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LeaderboardViews node]]];
                                                                    }
                                      ];
-        creditMenu.position = ccp(surface.width/4.0f, surface.height*0.21f);
-        creditMenu.tag = 2;
-        creditMenu.releaseBlockAtCleanup = NO;
-        creditMenu.scale = 0.75;
-
-        CCMenuItemImage *leaderboardMenu = [CCMenuItemImage itemWithNormalImage:@"menu_leaderboard.png"
-                                                             selectedImage:nil
-                                                                          block:^(id sender)  {
-                                                                              [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LeaderboardViews node]]];
-                                                                          }
-                                       ];
-        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.11f);
-        leaderboardMenu.tag = 3;
+        leaderboardMenu.position = ccp(surface.width/4.0f, surface.height*0.2f);
+        leaderboardMenu.tag = 2;
         leaderboardMenu.releaseBlockAtCleanup = NO;
         leaderboardMenu.scale = 0.75;
+
+        CCMenuItemImage *helpCreditsMenu = [CCMenuItemImage itemWithNormalImage:@"menu_helpcredits.png"
+                                                             selectedImage:nil
+                                                                          block:^(id sender)  {
+                                                                              [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelpAndCredits node]]];
+                                                                          }
+                                       ];
+        helpCreditsMenu.position = ccp(surface.width/4.0f, surface.height*0.11f);
+        helpCreditsMenu.tag = 3;
+        helpCreditsMenu.releaseBlockAtCleanup = NO;
+        helpCreditsMenu.scale = 0.75;
         
 
         
-        CCMenu *menuStart = [CCMenu menuWithItems:startMenu, helpMenu, creditMenu, leaderboardMenu, nil];
+        CCMenu *menuStart = [CCMenu menuWithItems:startMenu, helpCreditsMenu, settingMenu, leaderboardMenu, nil];
         menuStart.position = CGPointZero;
         [self addChild:menuStart z:20];
+        
 
         
     }
     return self;
 }
 
+- (void)onEnterTransitionDidFinish
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"musicSetting"])
+    {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"music.caf"];
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    }
+}
 
 - (void)startLevel:(CCMenuItem  *) menuItem
 {
@@ -137,15 +149,15 @@
             break;
     }
 }
-/*
-- (void)loadLeadershipView
+
+- (void)loadSettings
 {
-    LeaderboardViewController *leaderView = [[LeaderboardViewController alloc] init];
+    SettingsViewController *settingsView = [[SettingsViewController alloc] init];
     AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
-    [app.navController pushViewController:leaderView animated:YES];
+    [app.navController pushViewController:settingsView animated:YES];
    // [[CCDirector sharedDirector] pause];
 }
 
-*/
+
 
 @end

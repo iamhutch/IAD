@@ -108,6 +108,18 @@
     return self;
 }
 
+- (void)onEnterTransitionDidFinish
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"musicSetting"])
+    {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"music.caf"];
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    }
+}
+
 
 // START WOODCHUCK WALKING WITH LINEAR INTERPOLATION
 - (void)sendWoodChuck
@@ -231,9 +243,8 @@
         
         if (saveScoreOnce == 0)
         {
-            // GET USERNAME
-            NSArray *_hostNameArray = [[NSHost currentHost] names];
-            username = [_hostNameArray objectAtIndex:0];
+            // GET USERNAME FROM USER DEFAULTS
+            username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
             
             // CALCULATE SCORE BEFORE LEVEL IS INCREASED
             _score = [baseLevel calculateScore:(float)timer];

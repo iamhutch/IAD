@@ -30,19 +30,29 @@
 	if( (self=[super init])) {
 
 		// GET THE WINDOW SIZE
-		CGSize size = [[CCDirector sharedDirector] winSize];
+		CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CGSize surface = [CCDirector sharedDirector].winSizeInPixels;
 
 		CCSprite *background;
 		
-		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-			background = [CCSprite spriteWithFile:@"Default.png"];
-			background.rotation = 90;
-		} else {
-			background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+        // SETUP BACKGROUND
+		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+        {
+            if (surface.width > 480)
+            {
+                background = [CCSprite spriteWithFile:@"Default-568h@2x.png"];
+            }
+            else
+            {
+                background = [CCSprite spriteWithFile:@"Default@2x.png"];
+            }
 		}
-		background.position = ccp(size.width/2, size.height/2);
-
-		// ADD BACKGROUND
+        else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+        }
+        
+		background.position = ccp(winSize.width/2.0f, winSize.height/2.0f);
 		[self addChild: background];
 	}
 	

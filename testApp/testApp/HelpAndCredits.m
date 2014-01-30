@@ -1,22 +1,22 @@
 //
-//  Help.m
+//  HelpAndCredits.m
 //  testApp
 //
 //  Created by Lucy Hutcheson on 12/17/13.
 //  Copyright (c) 2013 Lucy Hutcheson. All rights reserved.
 //
 
-#import "Help.h"
+#import "HelpAndCredits.h"
 #import "Start.h"
 
-@implementation Help
+@implementation HelpAndCredits
 
 // SETUP SCENE
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
 	
-	Help *layer = [Help node];
+	HelpAndCredits *layer = [HelpAndCredits node];
 	
 	[scene addChild: layer];
 	
@@ -33,22 +33,22 @@
         {
             if (winSize.width > 480)
             {
-                background = [CCSprite spriteWithFile:@"help_hd.png"];
+                background = [CCSprite spriteWithFile:@"helpcredits_hd.png"];
             }
             else
             {
-                background = [CCSprite spriteWithFile:@"help.png"];
+                background = [CCSprite spriteWithFile:@"helpcredits.png"];
             }
 		}
         else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         {
             if (winSize.width > 1024)
             {
-                background = [CCSprite spriteWithFile:@"help_ipad_hd.png"];
+                background = [CCSprite spriteWithFile:@"helpcredits_ipad_hd.png"];
             }
             else
             {
-                background = [CCSprite spriteWithFile:@"help_ipad.png"];
+                background = [CCSprite spriteWithFile:@"helpcredits_ipad.png"];
             }
         }
         

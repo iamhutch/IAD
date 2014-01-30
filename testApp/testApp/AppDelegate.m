@@ -144,7 +144,14 @@
 	[window_ setRootViewController:navController_];
 	
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"music.caf"];
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"music.caf"];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"musicSetting"])
+    {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"music.caf"];
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    }
 	
     // Get the last level the user was on
     gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
