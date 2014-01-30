@@ -8,7 +8,7 @@
 
 #import "LevelThree.h"
 #import "GameOver.h"
-#import "Start.h"
+#import "LevelComplete.h"
 #import "DBManager.h"
 
 @implementation LevelThree
@@ -314,7 +314,7 @@
             [scoreObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     // The gameScore saved successfully.
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[Start node] ]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelComplete node] ]];
                 } else {
                     // There was an error saving the gameScore.
                     NSLog(@"%@", error);

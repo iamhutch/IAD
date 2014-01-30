@@ -7,7 +7,13 @@
 //
 
 #import "CCLayer.h"
+#import "cocos2d.h"
 
 @interface LevelComplete : CCLayer
+{
+    CGSize winSize;
+}
+
++(CCScene *) scene;
 
 @end

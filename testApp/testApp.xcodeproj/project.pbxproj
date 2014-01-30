@@ -790,10 +790,6 @@
 				847CF525184D0BA800758A18 /* Start.h */,
 				847CF526184D0BA800758A18 /* Start.m */,
 				8497E3E2189ACCAF00C2ECD0 /* Levels */,
-				8497E3E4189ACCEC00C2ECD0 /* LevelComplete.h */,
-				8497E3E5189ACCEC00C2ECD0 /* LevelComplete.m */,
-				847CF51A184C384100758A18 /* GameOver.h */,
-				847CF51B184C384100758A18 /* GameOver.m */,
 				8486F9461860D46B00168A87 /* HelpAndCredits.h */,
 				8486F9471860D46B00168A87 /* HelpAndCredits.m */,
 				84BEC1FA1899828E00D2D45C /* SettingsViewController.h */,
@@ -1231,6 +1227,10 @@
 				84A04D76188B5D70005C3AE8 /* LevelTwo.m */,
 				84A04D78188B6F4F005C3AE8 /* LevelThree.h */,
 				84A04D79188B6F4F005C3AE8 /* LevelThree.m */,
+				8497E3E4189ACCEC00C2ECD0 /* LevelComplete.h */,
+				8497E3E5189ACCEC00C2ECD0 /* LevelComplete.m */,
+				847CF51A184C384100758A18 /* GameOver.h */,
+				847CF51B184C384100758A18 /* GameOver.m */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
