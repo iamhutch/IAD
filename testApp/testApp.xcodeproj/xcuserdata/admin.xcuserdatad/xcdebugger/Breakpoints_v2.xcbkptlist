@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "testApp/LevelOne.m"
-            timestampString = "412744799.05638"
+            filePath = "testApp/GameOver.m"
+            timestampString = "412825399.490248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-tick:"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-onEnter"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,46 +41,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "testApp/LocalViewController.m"
-            timestampString = "412745329.765914"
+            filePath = "testApp/LevelComplete.m"
+            timestampString = "412830940.043658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-onEnter"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testApp/DBManager.m"
-            timestampString = "412745590.535657"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-findByColumn:findByFilter:showAll:orderBy:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testApp/LevelTwo.m"
-            timestampString = "412797943.562246"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
-            landmarkName = "-tick:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LevelComplete onEnter]"
+                  moduleName = "testApp"
+                  urlString = "file://localhost/Users/admin/Documents/Full-Sail/IAD%201401/IAD/testApp/testApp/LevelComplete.m"
+                  timestampString = "412830940.335182"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LevelComplete onEnter]"
+                  moduleName = "testApp"
+                  urlString = "file://localhost/Users/admin/Documents/Full-Sail/IAD%201401/IAD/testApp/testApp/LevelComplete.m"
+                  timestampString = "412830940.335427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "155">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

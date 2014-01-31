@@ -29,7 +29,7 @@
     CCSprite *_wood;
     CCSprite *_wood2;
     CCSprite *_fence;
-    bool gamePause;
+    BOOL gamePause;
     float _calculatedScore;
 }
 

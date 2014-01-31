@@ -13,6 +13,7 @@
 @interface GameOver : CCLayer
 {
     CGSize winSize;
+    int losses;
 }
 
 +(CCScene *) scene;

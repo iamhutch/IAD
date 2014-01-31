@@ -293,6 +293,12 @@
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"hit.caf"];
         [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.2f];
+        
+        // GET LOSSES FOR THIS LEVEL, INCREMENT IT AND SAVE IT FOR NEGATIVE ACHIEVEMENT
+        int losses = [[NSUserDefaults standardUserDefaults] integerForKey:@"LevelThreeLosses"];
+        losses++;
+        [[NSUserDefaults standardUserDefaults] setInteger:losses forKey:@"LevelThreeLosses"];
+
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[GameOver node] ]];
     }
     
@@ -302,7 +308,11 @@
         {
             // GET USERNAME FROM USER DEFAULTS
             username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-                
+            if (username == nil)
+            {
+                username = @"local";
+            }
+            
             // CALCULATE SCORE BEFORE LEVEL IS INCREASED
             _score = [baseLevel calculateScore:(float)timer];
             _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
@@ -315,7 +325,8 @@
                 if (!error) {
                     // The gameScore saved successfully.
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelComplete node] ]];
-                } else {
+                    [[NSUserDefaults standardUserDefaults] setFloat:_score forKey:@"lastScore"]; // SAVE LAST SCORE FOR ACHIEVEMENTS
+               } else {
                     // There was an error saving the gameScore.
                     NSLog(@"%@", error);
                 }
@@ -323,11 +334,10 @@
             
             // SAVE INITIAL DATA TO LOCAL SQL
             [[DBManager getSharedInstance] saveData:username score:[NSNumber numberWithFloat:_score] level:[NSNumber numberWithInt:_gameLevel]];
-
-            // INCREASE GAME LEVEL FROM 2 TO 3
-            [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];
             
             saveScoreOnce++;
+
+        
         }
     }
     
