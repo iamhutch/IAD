@@ -53,6 +53,13 @@
     level3Array = [queryLevel3 findObjects];
     [self.leaderboardArray addObjectsFromArray:level3Array];
 
+    PFQuery *queryLevel4 = [PFQuery queryWithClassName:@"topscores"];
+    [queryLevel4 orderByDescending:@"score"];
+    [queryLevel4 whereKey:@"level" equalTo:@4];
+    queryLevel4.limit = 1;
+    level4Array = [queryLevel4 findObjects];
+    [self.leaderboardArray addObjectsFromArray:level4Array];
+
 }
 
 

@@ -171,25 +171,25 @@
         int myStars = [defaults integerForKey:@"stars"] + _numberOfStars;
         [defaults setInteger:myStars forKey:@"stars"];
         
-        if (myStars > 15)
+        if (myStars > 25)
         {
             int goldStar = [defaults integerForKey:@"GoldStar"];
             if (goldStar == 0) // WE HAVEN'T SEEN IT YET
             {
                 // SHOW THIRD INCREMENTAL ACHIEVEMENT
-                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 15 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 25 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 // SET AN INTEGER THAT WE HAVE AWARDED THIS ALREADY SO WE SHOW IT ONLY ONCE
                 [defaults setInteger:1 forKey:@"GoldStar"];
                 [showStarMsg show];
             }
         }
-        else if (myStars > 10)
+        else if (myStars > 15)
         {
             int silverStar = [defaults integerForKey:@"SilverStar"];
             if (silverStar == 0) // WE HAVEN'T SEEN IT YET
             {
                 // SHOW SECOND INCREMENTAL ACHIEVEMENT
-                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 10 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 15 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 // SET AN INTEGER THAT WE HAVE AWARDED THIS ALREADY SO WE SHOW IT ONLY ONCE
                 [defaults setInteger:1 forKey:@"SilverStar"];
                 [showStarMsg show];

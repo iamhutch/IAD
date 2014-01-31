@@ -15,6 +15,7 @@
     NSArray *level1Array;
     NSArray *level2Array;
     NSArray *level3Array;
+    NSArray *level4Array;
     NSMutableArray *leaderboardArray;
 }
 
