@@ -30,6 +30,8 @@
 	if( (self=[super init])) {
         winSize = [CCDirector sharedDirector].winSize;
         CCSprite *background;
+        defaults = [NSUserDefaults standardUserDefaults];
+        
 		
 		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
         {
@@ -70,8 +72,8 @@
 {
     
     // GET OUR LAST SCORE AND LAST LEVEL
-    float _score  = [[NSUserDefaults standardUserDefaults] floatForKey:@"lastScore"];
-    int _gameLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"Level"];
+    float _score  = [defaults floatForKey:@"lastScore"];
+    int _gameLevel = [defaults integerForKey:@"Level"];
     int _numberOfStars;
     
     switch(_gameLevel) {
@@ -91,7 +93,7 @@
             }
             
             // INCREASE GAME LEVEL FROM 1 TO 2
-            [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Level"];
+            [defaults setInteger:2 forKey:@"Level"];
             break;
 
         case 2:
@@ -109,7 +111,7 @@
             }
 
             // INCREASE GAME LEVEL FROM 2 TO 3
-            [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level"];
+            [defaults setInteger:3 forKey:@"Level"];
             break;
 
         case 3:
@@ -127,34 +129,99 @@
             }
             
             // ONLY SHOW COMPLETION AWARD IF IT HASN'T BEEN SHOWN BEFORE
-            if ([[NSUserDefaults standardUserDefaults] integerForKey:@"CompletionAward"] == 0)
+            if ([defaults integerForKey:@"CompletionAward"] == 0)
             {
-                CCLabelTTF *congrats = [CCLabelTTF labelWithString:@"CONGRATULATIONS" fontName:@"Helvetica" fontSize:24];
-                congrats.position = ccp(winSize.width*0.5f, winSize.height*0.35f);
+                CCLabelTTF *congrats = [CCLabelTTF labelWithString:@"CONGRATULATIONS" fontName:@"Helvetica-Bold" fontSize:24];
+                congrats.position = ccp(winSize.width*0.5f, winSize.height*0.38f);
                 [self addChild:congrats];
                 
-                CCLabelTTF *achievement = [CCLabelTTF labelWithString:@"You have completed level 3!\nOutstanding!" fontName:@"Helvetica" fontSize:21];
-                achievement.position = ccp(winSize.width*0.5f, winSize.height*0.23f);
+                CCLabelTTF *achievement = [CCLabelTTF labelWithString:@"You have completed level 3! Outstanding!" fontName:@"Helvetica" fontSize:21];
+                achievement.position = ccp(winSize.width*0.5f, winSize.height*0.3f);
                 [self addChild:achievement];
                 
                 // INCREMENT THE COMPLETION ACHIEVEMENT
-                [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"CompletionAward"];
+                [defaults setInteger:1 forKey:@"CompletionAward"];
             }
 
+            // INCREASE GAME LEVEL FROM 3 TO 4
+            [defaults setInteger:4 forKey:@"Level"];
 
             break;
+            
+        case 4:
+            if (_score > 3700)
+            {
+                _numberOfStars = 3;
+            }
+            else if (_score > 3600 && _score < 3699)
+            {
+                _numberOfStars = 2;
+            }
+            else if (_score > 3400 && _score < 3599)
+            {
+                _numberOfStars = 1;
+            }
+            break;
+
     }
     
     if (_numberOfStars > 0)
     {
-        NSString *_starFile = [NSString stringWithFormat:@"%istars.png", _numberOfStars];
+        // SAVE NUMBER OF STARS FOR INCREMENTAL ACHIEVEMENT
+        int myStars = [defaults integerForKey:@"stars"] + _numberOfStars;
+        [defaults setInteger:myStars forKey:@"stars"];
         
-        // PROGRESS BAR AT THE TOP AS AN EVENT
+        if (myStars > 15)
+        {
+            int goldStar = [defaults integerForKey:@"GoldStar"];
+            if (goldStar == 0) // WE HAVEN'T SEEN IT YET
+            {
+                // SHOW THIRD INCREMENTAL ACHIEVEMENT
+                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 15 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                // SET AN INTEGER THAT WE HAVE AWARDED THIS ALREADY SO WE SHOW IT ONLY ONCE
+                [defaults setInteger:1 forKey:@"GoldStar"];
+                [showStarMsg show];
+            }
+        }
+        else if (myStars > 10)
+        {
+            int silverStar = [defaults integerForKey:@"SilverStar"];
+            if (silverStar == 0) // WE HAVEN'T SEEN IT YET
+            {
+                // SHOW SECOND INCREMENTAL ACHIEVEMENT
+                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 10 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                // SET AN INTEGER THAT WE HAVE AWARDED THIS ALREADY SO WE SHOW IT ONLY ONCE
+                [defaults setInteger:1 forKey:@"SilverStar"];
+                [showStarMsg show];
+            }
+        }
+        else if (myStars > 5)
+        {
+            int bronzeStar = [defaults integerForKey:@"BronzeStar"];
+            if (bronzeStar == 0) // WE HAVEN'T SEEN IT YET
+            {
+                // SHOW FIRST INCREMENTAL ACHIEVEMENT
+                UIAlertView *showStarMsg = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS" message:@"You've earned 5 stars!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                // SET AN INTEGER THAT WE HAVE AWARDED THIS ALREADY SO WE SHOW IT ONLY ONCE
+                [defaults setInteger:1 forKey:@"BronzeStar"];
+                [showStarMsg show];
+            }
+        }
+
+        
+        // SHOW STARS FOR MEASUREMENT ACHIEVEMENT
+        NSString *_starFile = [NSString stringWithFormat:@"%istars.png", _numberOfStars];
         CCSprite *_stars = [CCSprite spriteWithFile:_starFile];
         _stars.position = ccp(winSize.width*0.5, winSize.height*0.6);
         _stars.scale = 0.7;
         [self addChild:_stars];
     }
+    
+    NSString *scoreString = [NSString stringWithFormat:@"Score: %.0f", round(_score)];
+    CCLabelTTF *finalScore = [CCLabelTTF labelWithString:scoreString fontName:@"Helvetica-Bold" fontSize:24];
+    finalScore.position = ccp(winSize.width*0.5f, winSize.height*0.2f);
+    [self addChild:finalScore];
+
     
 
 }

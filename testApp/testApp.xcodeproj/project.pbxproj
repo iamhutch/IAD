@@ -36,6 +36,7 @@
 		84169CFB189B4520006A20E5 /* complete_ipad_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 84169CF7189B4520006A20E5 /* complete_ipad_hd.png */; };
 		84169CFC189B4520006A20E5 /* complete_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 84169CF8189B4520006A20E5 /* complete_ipad.png */; };
 		84169CFD189B4520006A20E5 /* complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 84169CF9189B4520006A20E5 /* complete.png */; };
+		84169D00189B4F8F006A20E5 /* LevelFour.m in Sources */ = {isa = PBXBuildFile; fileRef = 84169CFF189B4F8F006A20E5 /* LevelFour.m */; };
 		8421A08E1892096B007088B1 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A08C1892096B007088B1 /* LeaderboardViewController.m */; };
 		8421A08F1892096B007088B1 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8421A08D1892096B007088B1 /* LeaderboardViewController.xib */; };
 		8421A09218921DD6007088B1 /* scores.m in Sources */ = {isa = PBXBuildFile; fileRef = 8421A09118921DD6007088B1 /* scores.m */; };
@@ -268,6 +269,8 @@
 		84169CF7189B4520006A20E5 /* complete_ipad_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complete_ipad_hd.png; sourceTree = "<group>"; };
 		84169CF8189B4520006A20E5 /* complete_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complete_ipad.png; sourceTree = "<group>"; };
 		84169CF9189B4520006A20E5 /* complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complete.png; sourceTree = "<group>"; };
+		84169CFE189B4F8F006A20E5 /* LevelFour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFour.h; sourceTree = "<group>"; };
+		84169CFF189B4F8F006A20E5 /* LevelFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelFour.m; sourceTree = "<group>"; };
 		8421A08B1892096B007088B1 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		8421A08C1892096B007088B1 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
 		8421A08D1892096B007088B1 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
@@ -1231,6 +1234,8 @@
 				84A04D76188B5D70005C3AE8 /* LevelTwo.m */,
 				84A04D78188B6F4F005C3AE8 /* LevelThree.h */,
 				84A04D79188B6F4F005C3AE8 /* LevelThree.m */,
+				84169CFE189B4F8F006A20E5 /* LevelFour.h */,
+				84169CFF189B4F8F006A20E5 /* LevelFour.m */,
 				8497E3E4189ACCEC00C2ECD0 /* LevelComplete.h */,
 				8497E3E5189ACCEC00C2ECD0 /* LevelComplete.m */,
 				847CF51A184C384100758A18 /* GameOver.h */,
@@ -1441,6 +1446,7 @@
 				84341869188D8642009AB02A /* LevelBase.m in Sources */,
 				847CF492184A513000758A18 /* NSThread+performBlock.m in Sources */,
 				847CF399184A512F00758A18 /* CCActionTiledGrid.m in Sources */,
+				84169D00189B4F8F006A20E5 /* LevelFour.m in Sources */,
 				847CF3E0184A512F00758A18 /* CCMenuItem.m in Sources */,
 				847CF37B184A512E00758A18 /* CCActionCamera.m in Sources */,
 				847CF4AD184A513000758A18 /* CDXPropertyModifierAction.m in Sources */,

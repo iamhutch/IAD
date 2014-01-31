@@ -13,6 +13,7 @@
 #import "SettingsViewController.h"
 #import "HelpAndCredits.h"
 #import "LeaderboardViews.h"
+#import "LevelFour.h"
 
 
 
@@ -145,7 +146,8 @@
         case 3:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelThree node]]];
             break;
-        default:
+        case 4:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelFour node]]];
             break;
     }
 }

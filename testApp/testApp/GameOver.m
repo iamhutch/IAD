@@ -129,7 +129,7 @@
     
     
     if (showAchievement){
-        CCLabelTTF *congrats = [CCLabelTTF labelWithString:@"CONGRATULATIONS" fontName:@"Helvetica" fontSize:24];
+        CCLabelTTF *congrats = [CCLabelTTF labelWithString:@"CONGRATULATIONS" fontName:@"Helvetica-Bold" fontSize:24];
         congrats.position = ccp(winSize.width*0.5f, winSize.height*0.68f);
         congrats.color = ccYELLOW;
         [self addChild:congrats];

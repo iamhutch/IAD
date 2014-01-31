@@ -212,6 +212,9 @@
         case 3:
             _calculatedScore = 3000.0f * _timerScore;
             break;
+        case 4:
+            _calculatedScore = 4000.0f * _timerScore;
+            break;
     }
     NSLog(@"TIMERVALUE: %f", timerValue);
     return _calculatedScore;

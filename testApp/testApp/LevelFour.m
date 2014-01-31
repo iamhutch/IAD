@@ -1,24 +1,24 @@
 //
-//  LevelThree.m
+//  LevelFour.m
 //  testApp
 //
-//  Created by Lucy Hutcheson on 1/18/14.
+//  Created by Lucy Hutcheson on 1/30/14.
 //  Copyright (c) 2014 Lucy Hutcheson. All rights reserved.
 //
 
-#import "LevelThree.h"
+#import "LevelFour.h"
 #import "GameOver.h"
 #import "LevelComplete.h"
 #import "DBManager.h"
 
-@implementation LevelThree
+@implementation LevelFour
 
 // SETUP SCENE
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
 	
-	LevelThree *layer = [LevelThree node];
+	LevelFour *layer = [LevelFour node];
 	
 	[scene addChild: layer];
 	
@@ -50,12 +50,9 @@
         
         // LEVEL LABEL
         CCLabelTTF *levelLabel = baseLevel._levelLabel;
-        levelLabel.string = @"Level 3";
+        levelLabel.string = @"Level 4";
         [self addChild:levelLabel];
-        CCLabelTTF *levelInstr = [CCLabelTTF labelWithString:@"Slide finger side to side to slide under fence" fontName:@"Helvetica" fontSize:24];
-        levelInstr.position = ccp(winSize.width*0.5f, winSize.height*0.78f);
-        [self addChild:levelInstr];
-        
+
         // -- TIMER LABEL
         timerLabel = [CCLabelTTF labelWithString:@"0:00" fontName:@"Helvetica" fontSize:18];
         timerLabel.position = ccp(winSize.width*0.05f, winSize.height*0.90f);
@@ -75,12 +72,14 @@
         [self addChild:woodchuckHit z:10];
         woodchuckSlide = baseLevel._woodchuckSlide;
         [self addChild:woodchuckSlide z:10];
-
+        
         
         // PILE OF WOOD
         wood = baseLevel._wood; // PILE 1
         [self addChild:wood z:11];
-
+        wood2 = baseLevel._wood2; // PILE 2
+        [self addChild:wood2 z:11];
+        
         
         // FARMER TRACTOR ANIMATION
         tractor = baseLevel._tractor;
@@ -90,7 +89,7 @@
         // FENCE OBSTACLE
         fence = baseLevel._fence;
         [self addChild:fence z:11];
-
+        
         
         // SETUP TICK
         [self schedule:@selector(tick:) interval:1.0f/60.0f];
@@ -106,7 +105,7 @@
                                                      selector:@selector(increaseTimer)
                                                      userInfo:nil
                                                       repeats:YES];
-
+        
         // ALLOW TOUCHES
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
                                                                   priority:0
@@ -129,7 +128,7 @@
     // SLIDING WOODCHUCK
     woodchuckAction3 = [CCMoveTo actionWithDuration:10.0 position:ccp(ccpLerp(woodchuckSlide.position, CGPointMake(winSize.width, winSize.height), 1).x, winSize.height*0.20)];
     [woodchuckAction3 setTag:7003];
-
+    
     [woodchuckWalk runAction:woodchuckAction];
     [woodchuckWalk setVisible:YES];
     
@@ -138,15 +137,18 @@
     
     [woodchuckSlide runAction:woodchuckAction3];
     [woodchuckSlide setVisible:NO];
-
+    
 }
 
 // START WOOD AND FENCE MOVING WITH ROAD
 - (void)sendWood
 {
-    [wood runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(wood.position, CGPointMake(winSize.width*0.4, winSize.height), 1).x, winSize.height*0.20)]];
+    [wood runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(wood.position, CGPointMake(winSize.width*0.3, winSize.height), 1).x, winSize.height*0.20)]];
     
-    [fence runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(fence.position, CGPointMake(winSize.width*0.75, winSize.height), 1).x, winSize.height*0.20)]];
+    [wood2 runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(wood2.position, CGPointMake(winSize.width*0.5, winSize.height), 1).x, winSize.height*0.20)]];
+
+    [fence runAction:[CCMoveTo actionWithDuration:4.0f position:ccp(ccpLerp(fence.position, CGPointMake(winSize.width*0.85, winSize.height), 1).x, winSize.height*0.20)]];
+
 }
 
 // START TRACTOR ROLLING
@@ -189,7 +191,16 @@
             [woodchuckWalk runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
             [woodchuckHit runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
             [woodchuckSlide runAction: [CCMoveBy actionWithDuration:1 position:ccp(10,0)]];
-
+            
+        }
+        else if (CGRectIntersectsRect(_playerRect, _woodRect2))
+        {
+            CCTexture2D *newTexture2 = [[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"wood-%d.png", _woodCount]];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"crunch.caf"];
+            wood2.texture = newTexture2;
+            if (_woodCount < 9){
+                _woodCount++;
+            }
         }
         else if (CGRectIntersectsRect(_playerRect, _fenceRect))
         {
@@ -216,11 +227,18 @@
                       wood.contentSize.width-50, wood.contentSize.height);
 }
 
+// RETURN THE CGRECT OF OUR 2ND WOOD PILE
+-(CGRect)rectWood2
+{
+    return CGRectMake(wood2.position.x - (wood2.contentSize.width/2),
+                      wood2.position.y - (wood2.contentSize.height/2),
+                      wood2.contentSize.width, wood2.contentSize.height);
+}
 
 // RETURN THE CGRECT OF OUR FENCE
 -(CGRect)rectFence
 {
-    return CGRectMake(fence.position.x+20.0f - (fence.contentSize.width/2),
+    return CGRectMake(fence.position.x - (fence.contentSize.width/2),
                       fence.position.y - (fence.contentSize.height/2),
                       fence.contentSize.width-80.0f, fence.contentSize.height);
 }
@@ -261,6 +279,7 @@
     _woodRect = [self rectWood];
     _tractorRect = [self rectTractor];
     _fenceRect = [self rectFence];
+    _woodRect2 = [self rectWood2];
     
     // CHECK IF WOODCHUCK HAS MET UP WITH WOODPILE
     if (CGRectIntersectsRect(_playerRect, _woodRect))
@@ -299,7 +318,7 @@
         int losses = [[NSUserDefaults standardUserDefaults] integerForKey:@"LevelThreeLosses"];
         losses++;
         [[NSUserDefaults standardUserDefaults] setInteger:losses forKey:@"LevelThreeLosses"];
-
+        
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[GameOver node] ]];
     }
     
@@ -327,7 +346,7 @@
                     // The gameScore saved successfully.
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelComplete node] ]];
                     [[NSUserDefaults standardUserDefaults] setFloat:_score forKey:@"lastScore"]; // SAVE LAST SCORE FOR ACHIEVEMENTS
-               } else {
+                } else {
                     // There was an error saving the gameScore.
                     NSLog(@"%@", error);
                 }
@@ -337,8 +356,8 @@
             [[DBManager getSharedInstance] saveData:username score:[NSNumber numberWithFloat:_score] level:[NSNumber numberWithInt:_gameLevel]];
             
             saveScoreOnce++;
-
-        
+            
+            
         }
     }
     

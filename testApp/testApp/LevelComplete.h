@@ -12,6 +12,8 @@
 @interface LevelComplete : CCLayer
 {
     CGSize winSize;
+    NSUserDefaults *defaults;
+    
 }
 
 +(CCScene *) scene;
